@@ -52,7 +52,6 @@ Plugin 'mtth/scratch.vim' " Scratch pad
 "Plugin 'christoomey/vim-system-copy' " System clipboard copy
 Plugin 'janko-m/vim-test' " Shortcuts for testing
 Plugin 'christoomey/vim-tmux-navigator' " tmux / vim navigation
-"Plugin 'christoomey/vim-tmux-runner'
 Plugin 'Syntastic'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'surround.vim'
@@ -62,8 +61,10 @@ Plugin 'ervandew/supertab'
 
 " Pane plugins for vim-test
 "Plugin 'benmills/vimux'    " Another tmux integration
+Plugin 'christoomey/vim-tmux-runner'
 "Plugin 'tpope/vim-dispatch'  " TPope's test integration
-Plugin 'jgdavey/tslime.vim'
+"Plugin 'jgdavey/tslime.vim'
+"Plugin 'kassio/neoterm'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -133,7 +134,10 @@ let g:javascript_ignore_javaScriptdoc = 1
 let g:scratch_persistence_file = 'project-notes.txt'
 
 " Vim-Test options
-let test#strategy = "tslime"
+"let test#strategy = "neoterm"
+"let g:neoterm_position = "vertical"
+
+let test#strategy = "vtr"
 let test#ruby#bundle_exec = 0
 
 " Tmux runner configuration
@@ -146,9 +150,9 @@ nmap <silent> <leader>r :Tmux rubocop<CR>
 
 " The orientation used when creating the tmux split pane to use as the runner
 " pane.
-"let g:VtrOrientation = "h"
+let g:VtrOrientation = "h"
 " The percent of the tmux window the runner pane will occupy.
-"let g:VtrPercentage = 20
+let g:VtrPercentage = 20
 
 " RSpec.vim mappings
 "map <Leader>t :call RunCurrentSpecFile()<CR>

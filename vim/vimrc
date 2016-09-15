@@ -1,0 +1,202 @@
+let mapleader=","
+
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+
+" The following are examples of different formats supported.
+" Keep Plugin commands between vundle#begin/end.
+" plugin on GitHub repo
+"Plugin 'tpope/vim-fugitive'
+" plugin from http://vim-scripts.org/vim/scripts.html
+"Plugin 'L9'
+" Git plugin not hosted on GitHub
+"Plugin 'git://git.wincent.com/command-t.git'
+" git repos on your local machine (i.e. when working on your own plugin)
+"Plugin 'file:///home/gmarik/path/to/plugin'
+" The sparkup vim script is in a subdirectory of this repo called vim.
+" Pass the path to set the runtimepath properly.
+"Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+" Avoid a name conflict with L9
+"Plugin 'user/L9', {'name': 'newL9'}
+
+" My plugins
+Plugin 'tpope/vim-rails'
+Plugin 'tpope/vim-rake'
+Plugin 'tpope/vim-bundler'
+Plugin 'thoughtbot/vim-rspec'
+Plugin 'scrooloose/nerdtree'
+Plugin 'jlanzarotta/bufexplorer'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'vim-scripts/ctrlp.vim'
+Plugin 'mileszs/ack.vim' " search in files
+Plugin 'skwp/greplace.vim' " Gsearch and Greplace for text in files
+Plugin 'coderifous/textobj-word-column.vim' " Visually select columns
+Plugin 'hail2u/vim-css3-syntax'
+Plugin 'tpope/vim-endwise' " Smart function ending
+Plugin 'tpope/vim-eunuch' " Unix commands
+Plugin 'kopischke/vim-fetch' "Go to line and column in files
+Plugin 'tpope/vim-fugitive' " Git integration
+Plugin 'tpope/vim-unimpaired'   " Shortcuts for git integration
+Plugin 'pangloss/vim-javascript' " JS highlighting
+Plugin 'christoomey/vim-rfactory' " Rfactory for navigating to factories
+Plugin 'mtth/scratch.vim' " Scratch pad
+"Plugin 'christoomey/vim-system-copy' " System clipboard copy
+Plugin 'janko-m/vim-test' " Shortcuts for testing
+Plugin 'christoomey/vim-tmux-navigator' " tmux / vim navigation
+"Plugin 'christoomey/vim-tmux-runner'
+Plugin 'Syntastic'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'surround.vim'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'ervandew/supertab'
+
+" Pane plugins for vim-test
+"Plugin 'benmills/vimux'    " Another tmux integration
+"Plugin 'tpope/vim-dispatch'  " TPope's test integration
+Plugin 'jgdavey/tslime.vim'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+
+filetype plugin indent on    " required
+
+" Faster redrawing
+set ttyfast
+"
+" Brief help
+" :PluginList          - list configured plugins
+" :PluginInstall(!)    - install (update) plugins
+" :PluginSearch(!) foo - search (or refresh cache first) for foo
+" :PluginClean(!)      - confirm (or auto-approve) removal of unused plugins
+
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
+syntax on
+
+colorscheme molokai
+
+" set autoindent                " copy indent from current line when starting a new line
+set backspace+=eol            " allow backspacing over line breaks (join lines)
+set backspace+=indent         " allow backspacing over autoindent
+set backspace+=start          " allow backspacing over the start of insert; CTRL-W and CTRL-U
+set clipboard=unnamed         " yanks to osx clipboard
+"set colorcolumn=81            " color line at 81st column
+set cursorline                " highlight the screen line of the cursor
+set expandtab                 " expand tabs to spaces
+set hidden                    " allow buffers to be hidden
+set history=1000              " number of history items to remember
+set hlsearch                  " highlight search pattern matches
+set ignorecase                " ignore case"
+set incsearch                 " highlight search pattern matches as they're found
+set iskeyword+=-              " allow - to be considered part of a word
+set laststatus=1              " only show status if there are at least 2 windows
+set matchtime=2               " amount of time to show the matching parent when 'showmatch' is set
+set number                    " display line numbers on side
+set nojoinspaces              " add single space after '.', '?', and '!' with a join command
+set noswapfile                " do not make a swapfile
+set nowrap                    " default to no line wrapping
+set ruler                     " show line and column number of the cursor position
+set scrolloff=3               " minimum number of screen lines to keep above/below the cursor"
+set shiftwidth=2              " set indent to 2 spaces
+set showmatch                 " when a bracket is inserted, briefly jump to the matching one
+set smartcase                 " ignore case when the pattern contains lowercase only"
+set softtabstop=2             " set <tab> to 2 spaces while in insert mode
+set tabstop=2                 " set <tab> to two spaces
+set wildmenu                  " enable command-completion window
+set wildmode=list:longest     " list all matches and complete til longest common match
+
+" Use Ag instead of Ack for searching
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+
+  set grepprg=ag
+  let g:grep_cmd_opts = '--line-numbers --noheading'
+endif
+
+" For vim-javascript
+let g:javascript_enable_domhtmlcss = 1
+let g:javascript_ignore_javaScriptdoc = 1
+
+" Scratch pad options
+" let g:scratch_horizontal = 1
+" let g:scratch_height = 20
+let g:scratch_persistence_file = 'project-notes.txt'
+
+" Vim-Test options
+let test#strategy = "tslime"
+let test#ruby#bundle_exec = 0
+
+" Tmux runner configuration
+nmap <silent> <leader>s :TestNearest<CR>
+nmap <silent> <leader>t :TestFile<CR>
+nmap <silent> <leader>a  :TestSuite<CR>
+nmap <silent> <leader>l :TestLast<CR>
+nmap <silent> <leader>v :TestVisit<CR>
+nmap <silent> <leader>r :Tmux rubocop<CR>
+
+" The orientation used when creating the tmux split pane to use as the runner
+" pane.
+"let g:VtrOrientation = "h"
+" The percent of the tmux window the runner pane will occupy.
+"let g:VtrPercentage = 20
+
+" RSpec.vim mappings
+"map <Leader>t :call RunCurrentSpecFile()<CR>
+"map <Leader>s :call RunNearestSpec()<CR>
+"map <Leader>l :call RunLastSpec()<CR>
+"map <Leader>a :call RunAllSpecs()<CR>
+
+"let g:rspec_runner = "os_x_iterm2"
+"let g:rspec_command = 'call Send_to_Tmux("rspec {spec}\n")'
+
+fun! <SID>StripTrailingWhitespaces()
+    let l = line(".")
+    let c = col(".")
+    %s/\s\+$//e
+    call cursor(l, c)
+endfun
+autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
+
+" Reload vim on vimrc changes
+autocmd! BufWritePost ~/.vim/vimrc  source ~/.vim/vimrc       " source .vimrc on save
+autocmd! VimResized * :wincmd =                       " automatically rebalance windows on vim resize
+
+nnoremap j gj
+nnoremap k gk
+
+:inoremap jk <esc>
+
+" Only highlight the screen line of the active buffer
+augroup CursorLine
+  au!
+  au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+  au WinLeave * setlocal nocursorline
+augroup END
+
+" Map arrow keys to window resize
+nmap <left>  <c-w><
+nmap <right> <c-w>>
+nmap <up>    <c-w>+
+nmap <down>  <c-w>-
+
+" Toggle Nerd Tree
+map <leader>n :NERDTreeToggle<CR>
+" Find shortcut
+map <leader>f :Ack!<space>
+
+"This unsets the 'last search pattern' register by hitting return
+nnoremap <CR> :noh<CR><CR>
+
+" Set airline theme
+let g:airline_theme='base16_monokai'
+let g:airline_powerline_fonts = 1

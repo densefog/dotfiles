@@ -58,13 +58,15 @@ Plugin 'surround.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'ervandew/supertab'
+Plugin 'tpope/vim-markdown'
+Plugin 'othree/html5.vim'
 
 " Pane plugins for vim-test
 "Plugin 'benmills/vimux'    " Another tmux integration
-Plugin 'christoomey/vim-tmux-runner'
+"Plugin 'christoomey/vim-tmux-runner'
 "Plugin 'tpope/vim-dispatch'  " TPope's test integration
 "Plugin 'jgdavey/tslime.vim'
-"Plugin 'kassio/neoterm'
+Plugin 'kassio/neoterm'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -115,6 +117,7 @@ set softtabstop=2             " set <tab> to 2 spaces while in insert mode
 set tabstop=2                 " set <tab> to two spaces
 set wildmenu                  " enable command-completion window
 set wildmode=list:longest     " list all matches and complete til longest common match
+set listchars+=tab:\ \
 
 " Use Ag instead of Ack for searching
 if executable('ag')
@@ -134,10 +137,11 @@ let g:javascript_ignore_javaScriptdoc = 1
 let g:scratch_persistence_file = 'project-notes.txt'
 
 " Vim-Test options
-"let test#strategy = "neoterm"
+let test#strategy = "neoterm"
+"let test#strategy = "neovim"
 "let g:neoterm_position = "vertical"
 
-let test#strategy = "vtr"
+"let test#strategy = "vtr"
 let test#ruby#bundle_exec = 0
 
 " Tmux runner configuration
@@ -150,9 +154,9 @@ nmap <silent> <leader>r :Tmux rubocop<CR>
 
 " The orientation used when creating the tmux split pane to use as the runner
 " pane.
-let g:VtrOrientation = "h"
+"let g:VtrOrientation = "h"
 " The percent of the tmux window the runner pane will occupy.
-let g:VtrPercentage = 20
+"let g:VtrPercentage = 20
 
 " RSpec.vim mappings
 "map <Leader>t :call RunCurrentSpecFile()<CR>

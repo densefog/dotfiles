@@ -66,7 +66,7 @@ Plugin 'othree/html5.vim'
 "Plugin 'christoomey/vim-tmux-runner'
 "Plugin 'tpope/vim-dispatch'  " TPope's test integration
 "Plugin 'jgdavey/tslime.vim'
-Plugin 'jgdavey/tslime.vim' " Not the original
+"Plugin 'jgdavey/tslime.vim' " Not the original
 "Plugin 'kassio/neoterm'
 
 " All of your Plugins must be added before the following line
@@ -139,8 +139,8 @@ let g:javascript_ignore_javaScriptdoc = 1
 let g:scratch_persistence_file = 'project-notes.txt'
 
 " Vim-Test options
-let test#strategy = "tslime"
-"let test#strategy = "neovim"
+"let test#strategy = "neoterm"
+let test#strategy = "neovim"
 "let g:neoterm_position = "vertical"
 
 "let test#strategy = "vtr"

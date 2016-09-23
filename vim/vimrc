@@ -63,11 +63,11 @@ Plugin 'tpope/vim-markdown'
 Plugin 'othree/html5.vim'
 
 " Pane plugins for vim-test
-"Plugin 'benmills/vimux'    " Another tmux integration
 "Plugin 'christoomey/vim-tmux-runner'
 "Plugin 'tpope/vim-dispatch'  " TPope's test integration
 "Plugin 'jgdavey/tslime.vim'
-Plugin 'kassio/neoterm'
+Plugin 'jgdavey/tslime.vim' " Not the original
+"Plugin 'kassio/neoterm'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -139,7 +139,7 @@ let g:javascript_ignore_javaScriptdoc = 1
 let g:scratch_persistence_file = 'project-notes.txt'
 
 " Vim-Test options
-let test#strategy = "neoterm"
+let test#strategy = "tslime"
 "let test#strategy = "neovim"
 "let g:neoterm_position = "vertical"
 
@@ -153,6 +153,7 @@ nmap <silent> <leader>a  :TestSuite<CR>
 nmap <silent> <leader>l :TestLast<CR>
 nmap <silent> <leader>v :TestVisit<CR>
 nmap <silent> <leader>r :Tmux rubocop<CR>
+
 
 " The orientation used when creating the tmux split pane to use as the runner
 " pane.

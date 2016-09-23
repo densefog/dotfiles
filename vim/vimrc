@@ -32,7 +32,7 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-rake'
 Plugin 'tpope/vim-bundler'
-Plugin 'thoughtbot/vim-rspec'
+"Plugin 'thoughtbot/vim-rspec'
 Plugin 'scrooloose/nerdtree'
 Plugin 'jlanzarotta/bufexplorer'
 Plugin 'scrooloose/nerdcommenter'
@@ -55,8 +55,9 @@ Plugin 'christoomey/vim-tmux-navigator' " tmux / vim navigation
 Plugin 'Syntastic'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'surround.vim'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
+" Commented out airline for now, need patched powerline fonts
+"Plugin 'vim-airline/vim-airline'
+"Plugin 'vim-airline/vim-airline-themes'
 Plugin 'ervandew/supertab'
 Plugin 'tpope/vim-markdown'
 Plugin 'othree/html5.vim'
@@ -118,6 +119,7 @@ set tabstop=2                 " set <tab> to two spaces
 set wildmenu                  " enable command-completion window
 set wildmode=list:longest     " list all matches and complete til longest common match
 set listchars+=tab:\ \
+set termguicolors
 
 " Use Ag instead of Ack for searching
 if executable('ag')
@@ -206,5 +208,5 @@ map <leader>f :Ack!<space>
 nnoremap <CR> :noh<CR><CR>
 
 " Set airline theme
-let g:airline_theme='base16_monokai'
-let g:airline_powerline_fonts = 1
+"let g:airline_theme='base16_monokai'
+"let g:airline_powerline_fonts = 1

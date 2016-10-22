@@ -18,7 +18,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'jlanzarotta/bufexplorer'
 Plugin 'scrooloose/nerdcommenter'
 "Plugin 'vim-scripts/ctrlp.vim'
-"Plugin 'mileszs/ack.vim' " search in files
+Plugin 'mileszs/ack.vim' " search in files
 Plugin 'skwp/greplace.vim' " Gsearch and Greplace for text in files
 Plugin 'coderifous/textobj-word-column.vim' " Visually select columns
 "Plugin 'hail2u/vim-css3-syntax'
@@ -55,8 +55,8 @@ Plugin 'junegunn/fzf.vim'
 
 
 nnoremap <c-p> :Files<CR>
-nnoremap <c-o> :Buffers<CR>
-map <leader>f :Ag<space>
+"nnoremap <c-o> :Buffers<CR>
+map <leader>f :Ack!<space>
 let g:fzf_layout = { 'down': '~20%' }
 let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -g ""'
 
@@ -125,21 +125,9 @@ nmap <silent> <leader>l :TestLast<CR>
 nmap <silent> <leader>v :TestVisit<CR>
 nmap <silent> <leader>r :Tmux rubocop<CR>
 
-
-" The orientation used when creating the tmux split pane to use as the runner
-" pane.
-"let g:VtrOrientation = "h"
-" The percent of the tmux window the runner pane will occupy.
-"let g:VtrPercentage = 20
-
-" RSpec.vim mappings
-"map <Leader>t :call RunCurrentSpecFile()<CR>
-"map <Leader>s :call RunNearestSpec()<CR>
-"map <Leader>l :call RunLastSpec()<CR>
-"map <Leader>a :call RunAllSpecs()<CR>
-
-"let g:rspec_runner = "os_x_iterm2"
-"let g:rspec_command = 'call Send_to_Tmux("rspec {spec}\n")'
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
 
 fun! <SID>StripTrailingWhitespaces()
     let l = line(".")

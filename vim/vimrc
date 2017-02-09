@@ -53,11 +53,10 @@ Plugin 'jgdavey/tslime.vim' " Not the original
 Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plugin 'junegunn/fzf.vim'
 
-
 nnoremap <c-p> :Files<CR>
-"nnoremap <c-o> :Buffers<CR>
+"nnoremap <c-s> :Buffers<CR>
 map <leader>f :Ack!<space>
-let g:fzf_layout = { 'down': '~20%' }
+let g:fzf_layout = { 'down': '~30%' }
 let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -g ""'
 
 " All of your Plugins must be added before the following line
@@ -70,6 +69,7 @@ set ttyfast " Faster redrawing
 syntax on
 
 " set autoindent                " copy indent from current line when starting a new line
+set background=dark           " use colors that look good on dark
 set backspace+=eol            " allow backspacing over line breaks (join lines)
 set backspace+=indent         " allow backspacing over autoindent
 set backspace+=start          " allow backspacing over the start of insert; CTRL-W and CTRL-U
@@ -115,7 +115,10 @@ let g:scratch_persistence_file = 'project-notes.txt'
 "let g:neoterm_position = "vertical"
 
 let test#strategy = "tslime"
+"let test#strategy = "vtr"
 "let test#ruby#bundle_exec = 0
+"let g:VtrOrientation = "h"
+"let g:VtrPercentage = 20
 
 " Tmux runner configuration
 nmap <silent> <leader>s :TestNearest<CR>
@@ -125,9 +128,19 @@ nmap <silent> <leader>l :TestLast<CR>
 nmap <silent> <leader>v :TestVisit<CR>
 nmap <silent> <leader>r :Tmux rubocop<CR>
 
-if executable('ag')
-  let g:ackprg = 'ag --vimgrep'
-endif
+nnoremap <leader>ra :VtrAttachToPane<cr>
+nnoremap <leader>rO :VtrReorientRunner<cr>
+nnoremap <leader>rc :VtrSendCommandToRunner<cr>
+nnoremap <leader>rl :VtrSendLinesToRunner<cr>
+nnoremap <leader>ro :VtrOpenRunner<cr>
+nnoremap <leader>rk :VtrKillRunner<cr>
+nnoremap <leader>rf :VtrFocusRunner<cr>
+nnoremap <leader>rd :VtrDetachRunner<cr>
+nnoremap <leader>rC :VtrClearRunner<cr>
+
+"if executable('ag')
+"  let g:ackprg = 'ag --vimgrep'
+"endif
 
 fun! <SID>StripTrailingWhitespaces()
     let l = line(".")

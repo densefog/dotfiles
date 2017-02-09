@@ -1,0 +1,69 @@
+[core]
+	excludesfile = /Users/troys/.gitignore_global
+[color]
+        diff = auto
+        status = auto
+        branch = auto
+        interactive = auto
+        ui = true
+        pager = true
+
+[color "branch"]
+        current = yellow reverse
+        local = yellow
+        remote = green
+
+[color "diff"]
+        meta = yellow bold
+        frag = magenta bold
+        old = red bold
+        new = green bold
+
+[color "status"]
+        added = yellow
+        changed = green
+        untracked = cyan
+
+[alias]
+  co = checkout
+  st = status
+  ci = commit
+  w = whatchanged
+  br = branch
+	pf = push --force-with-lease
+  lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
+	graph = log --graph -10 --branches --remotes --tags  --format=format:'%Cgreen%h %Creset• %<(75,trunc)%s (%cN, %cr) %Cred%d' --date-order
+  showfiles = diff-tree --no-commit-id --name-status -r
+  masterdiff = branch --merged master
+  dt = difftool -d
+
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path =
+
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+
+[filter "lfs"]
+	smudge = git-lfs smudge %f
+	required = true
+	clean = git-lfs clean %f
+
+[user]
+	name = Troy Spruit
+	email = troy@collectiveidea.com
+[push]
+  default = current
+[merge]
+  tool = araxis
+  ff = only
+  #tool = opendiff
+[diff]
+  tool = araxis
+  #tool = opendiff
+[difftool]
+	prompt = false
+[mergetool]
+	prompt = false
+	keepBackup = false

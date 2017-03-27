@@ -58,6 +58,7 @@ nnoremap <c-p> :Files<CR>
 map <leader>f :Ack!<space>
 let g:fzf_layout = { 'down': '~30%' }
 let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -g ""'
+let g:fzf_action = {  'ctrl-t': 'tab split', 'ctrl-h': 'split', 'ctrl-v': 'vsplit' }
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required

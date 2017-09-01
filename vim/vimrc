@@ -33,28 +33,30 @@ Plugin 'christoomey/vim-rfactory' " Rfactory for navigating to factories
 Plugin 'mtth/scratch.vim' " Scratch pad
 "Plugin 'christoomey/vim-system-copy' " System clipboard copy
 Plugin 'christoomey/vim-tmux-navigator' " tmux / vim navigation
-Plugin 'Syntastic'
+Plugin 'Syntastic'   " syntax checking
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'surround.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'ervandew/supertab'
 Plugin 'tpope/vim-abolish'
-
+Plugin 'MattesGroeger/vim-bookmarks' " bookmarks
 " Pane plugins for vim-test
 Plugin 'janko-m/vim-test' " Shortcuts for testing
 "Plugin 'christoomey/vim-tmux-runner'
 "Plugin 'tpope/vim-dispatch'  " TPope's test integration
 Plugin 'jgdavey/tslime.vim' " Not the original
 "Plugin 'kassio/neoterm'
+Plugin 'terryma/vim-smooth-scroll' " Smooth scrolling
 
 " Fuzzy Finder
 Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plugin 'junegunn/fzf.vim'
 
 " Airline styling
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
+"Plugin 'vim-airline/vim-airline'
+"Plugin 'vim-airline/vim-airline-themes'
 Plugin 'flazz/vim-colorschemes'
+Plugin 'rizzatti/dash.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -106,11 +108,15 @@ endif
 
 " Fuzzy finder
 nnoremap <c-p> :Files<CR>
-"nnoremap <c-s> :Buffers<CR>
+nnoremap <c-o> :Buffers<CR>
+
 let g:fzf_layout = { 'down': '~40%' }
 let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -g ""'
 let g:fzf_action = {  'ctrl-t': 'tab split', 'ctrl-h': 'split', 'ctrl-v': 'vsplit' }
 
+" Save and Reload sessions
+map <F2> :mksession! ~/.vim_session <cr> " Quick write session with F2
+map <F3> :source ~/.vim_session <cr>     " And load session with F3
 " For vim-javascript
 "let g:javascript_enable_domhtmlcss = 1
 "let g:javascript_ignore_javaScriptdoc = 1
@@ -181,23 +187,34 @@ nmap <right> <c-w>>
 nmap <up>    <c-w>+
 nmap <down>  <c-w>-
 
+" Smooth scrolling
+noremap <silent> <c-u> :call smooth_scroll#up(&scroll/2, 0, 2)<CR>
+noremap <silent> <c-d> :call smooth_scroll#down(&scroll/2, 0, 2)<CR>
+noremap <silent> <c-b> :call smooth_scroll#up(&scroll, 0, 4)<CR>
+noremap <silent> <c-f> :call smooth_scroll#down(&scroll, 0, 4)<CR>
+
 " Toggle Nerd Tree
 map <leader>n :NERDTreeToggle<CR>
+map <leader>d :Dash
 
 "This unsets the 'last search pattern' register by hitting return
 nnoremap <CR> :noh<CR><CR>
 
 " Set airline theme
 colorscheme molokai
-let g:airline_theme='molokai'
+"let g:airline_theme='molokai'
 
 " Syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
+"set statusline+=%h%M%r%w
+
+set statusline=[%n]\ %<%.99f\ %h%w%m%r%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%y%=%-16(\ %l,%c-%v\ %)%P
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_javascript_checkers = ['jshint']
+let g:syntastic_loc_list_height = 5

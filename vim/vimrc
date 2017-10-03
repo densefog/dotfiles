@@ -33,7 +33,8 @@ Plugin 'christoomey/vim-rfactory' " Rfactory for navigating to factories
 Plugin 'mtth/scratch.vim' " Scratch pad
 "Plugin 'christoomey/vim-system-copy' " System clipboard copy
 Plugin 'christoomey/vim-tmux-navigator' " tmux / vim navigation
-Plugin 'Syntastic'   " syntax checking
+"Plugin 'Syntastic'   " syntax checking
+Plugin 'w0rp/ale' " syntax checking
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'surround.vim'
 Plugin 'airblade/vim-gitgutter'
@@ -204,17 +205,22 @@ nnoremap <CR> :noh<CR><CR>
 colorscheme molokai
 "let g:airline_theme='molokai'
 
+let g:ale_linters = { 'javascript': ['standard'], }
+let g:ale_sign_column_always = 1
+
 " Syntastic
 "set statusline+=%#warningmsg#
 "set statusline+=%{SyntasticStatuslineFlag()}
 "set statusline+=%*
 "set statusline+=%h%M%r%w
 
-set statusline=[%n]\ %<%.99f\ %h%w%m%r%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%y%=%-16(\ %l,%c-%v\ %)%P
+"set statusline=[%n]\ %<%.99f\ %h%w%m%r%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%y%=%-16(\ %l,%c-%v\ %)%P
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 0
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_javascript_checkers = ['jshint']
-let g:syntastic_loc_list_height = 5
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 0
+"let g:syntastic_check_on_open = 1
+"let g:syntastic_check_on_wq = 0
+"let g:syntastic_javascript_checkers = ['jshint']
+"let g:syntastic_loc_list_height = 5
+
+

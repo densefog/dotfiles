@@ -38,7 +38,7 @@ Plugin 'w0rp/ale' " syntax checking
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'surround.vim'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'ervandew/supertab'
+"Plugin 'ervandew/supertab'
 Plugin 'tpope/vim-abolish'
 Plugin 'MattesGroeger/vim-bookmarks' " bookmarks
 " Pane plugins for vim-test
@@ -52,12 +52,28 @@ Plugin 'terryma/vim-smooth-scroll' " Smooth scrolling
 " Fuzzy Finder
 Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plugin 'junegunn/fzf.vim'
+"Plugin 'vim-scripts/ctrlp.vim'
 
 " Airline styling
 "Plugin 'vim-airline/vim-airline'
 "Plugin 'vim-airline/vim-airline-themes'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'rizzatti/dash.vim'
+
+" Tags for code lookup
+Plugin 'ludovicchabant/vim-gutentags'
+let g:gutentags_cache_dir = '~/.tags_cache'
+
+" Completions
+Plugin 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+let g:deoplete#enable_at_startup = 1
+" use tab for completion
+inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+
+" Better terminal integration, cursor shapes, buffer updates
+Plugin 'wincent/terminus'
+Plugin 'slashmili/alchemist.vim'
+
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -99,6 +115,7 @@ set wildmenu                  " enable command-completion window
 set wildmode=list:longest     " list all matches and complete til longest common match
 set listchars+=tab:\ \
 set termguicolors
+"set tags+='~/.tags_cache'
 
 " Find in files
 map <leader>f :Ack!<space>
@@ -109,11 +126,15 @@ endif
 
 " Fuzzy finder
 nnoremap <c-p> :Files<CR>
-nnoremap <c-o> :Buffers<CR>
+nnoremap <leader>r :BTags<CR>
+"nnoremap <c-o> :Buffers<CR>
 
 let g:fzf_layout = { 'down': '~40%' }
 let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -g ""'
 let g:fzf_action = {  'ctrl-t': 'tab split', 'ctrl-h': 'split', 'ctrl-v': 'vsplit' }
+
+"let g:ctrlp_extensions = ['buffertag']
+"nnoremap <leader>r :CtrlPBufTag<CR>
 
 " Save and Reload sessions
 map <F2> :mksession! ~/.vim_session <cr> " Quick write session with F2
@@ -144,7 +165,7 @@ nmap <silent> <leader>t :TestFile<CR>
 nmap <silent> <leader>a  :TestSuite<CR>
 nmap <silent> <leader>l :TestLast<CR>
 nmap <silent> <leader>v :TestVisit<CR>
-nmap <silent> <leader>r :Tmux rubocop<CR>
+"nmap <silent> <leader>r :Tmux rubocop<CR>
 
 nnoremap <leader>ra :VtrAttachToPane<cr>
 nnoremap <leader>rO :VtrReorientRunner<cr>
@@ -170,6 +191,11 @@ autocmd! VimResized * :wincmd =                       " automatically rebalance 
 
 nnoremap j gj
 nnoremap k gk
+inoremap jj <ESC>
+inoremap jk <ESC>
+inoremap <F1> <ESC>
+nnoremap <F1> <ESC>
+vnoremap <F1> <ESC>
 
 " Sublime like multiple cursors
 let g:multi_cursor_exit_from_insert_mode = 0
@@ -196,7 +222,7 @@ noremap <silent> <c-f> :call smooth_scroll#down(&scroll, 0, 4)<CR>
 
 " Toggle Nerd Tree
 map <leader>n :NERDTreeToggle<CR>
-map <leader>d :Dash
+nnoremap <leader>d :Dash<CR>
 
 "This unsets the 'last search pattern' register by hitting return
 nnoremap <CR> :noh<CR><CR>

@@ -16,7 +16,7 @@ Plugin 'tpope/vim-rake'
 Plugin 'tpope/vim-bundler'
 "Plugin 'thoughtbot/vim-rspec'
 Plugin 'scrooloose/nerdtree'
-Plugin 'jlanzarotta/bufexplorer'
+"Plugin 'jlanzarotta/bufexplorer'
 Plugin 'scrooloose/nerdcommenter'
 "Plugin 'vim-scripts/ctrlp.vim'
 Plugin 'mileszs/ack.vim' " search in files
@@ -36,6 +36,7 @@ Plugin 'christoomey/vim-tmux-navigator' " tmux / vim navigation
 "Plugin 'Syntastic'   " syntax checking
 Plugin 'w0rp/ale' " syntax checking
 Plugin 'terryma/vim-multiple-cursors'
+Plugin 'tpope/vim-repeat'
 Plugin 'surround.vim'
 Plugin 'airblade/vim-gitgutter'
 "Plugin 'ervandew/supertab'
@@ -129,7 +130,7 @@ endif
 " Fuzzy finder
 nnoremap <c-p> :Files<CR>
 nnoremap <leader>r :BTags<CR>
-"nnoremap <c-o> :Buffers<CR>
+nnoremap <leader>e :Buffers<CR>
 
 let g:fzf_layout = { 'down': '~40%' }
 let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -g ""'
@@ -198,6 +199,9 @@ inoremap jk <ESC>
 inoremap <F1> <ESC>
 nnoremap <F1> <ESC>
 vnoremap <F1> <ESC>
+
+nnoremap <c-w>[ :wincmd _<cr><bar>:wincmd \|<cr>                " zoom in the active window
+nnoremap <c-w>] :wincmd =<cr>                                   " zoom out the current window
 
 " Sublime like multiple cursors
 let g:multi_cursor_exit_from_insert_mode = 0

@@ -34,9 +34,10 @@ Plugin 'mtth/scratch.vim' " Scratch pad
 "Plugin 'christoomey/vim-system-copy' " System clipboard copy
 Plugin 'christoomey/vim-tmux-navigator' " tmux / vim navigation
 "Plugin 'Syntastic'   " syntax checking
-Plugin 'w0rp/ale' " syntax checking
+"Plugin 'w0rp/ale' " syntax checking
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tpope/vim-repeat'
+"Plugin 'svermeulen/vim-easyclip'
 Plugin 'surround.vim'
 Plugin 'airblade/vim-gitgutter'
 "Plugin 'ervandew/supertab'
@@ -74,12 +75,11 @@ let g:deoplete#enable_at_startup = 1
 inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
 " Better terminal integration, cursor shapes, buffer updates
-Plugin 'wincent/terminus'
+"Plugin 'wincent/terminus'
 Plugin 'slashmili/alchemist.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
-
 filetype plugin indent on    " required
 
 set ttyfast " Faster redrawing
@@ -143,6 +143,10 @@ let g:fzf_action = {  'ctrl-t': 'tab split', 'ctrl-h': 'split', 'ctrl-v': 'vspli
 
 "command! -bang -nargs=* Rg call fzf#vim#grep('rg --column --line-number --no-heading --color=always '.shellescape(<q-args>), 1, <bang>0 ? fzf#vim#with_preview('up:60%') : fzf#vim#with_preview('right:50%:hidden', '?'), <bang>0)
 
+" For greplace settings
+set grepprg=ag
+let g:grep_cmd_opts = '--line-numbers --noheading'
+
 
 "let g:ctrlp_extensions = ['buffertag']
 "nnoremap <leader>r :CtrlPBufTag<CR>
@@ -173,10 +177,11 @@ let test#strategy = "tslime"
 " Tmux runner configuration
 nmap <silent> <leader>s :TestNearest<CR>
 nmap <silent> <leader>t :TestFile<CR>
-nmap <silent> <leader>a  :TestSuite<CR>
+nmap <silent> <leader>a :TestSuite<CR>
 nmap <silent> <leader>l :TestLast<CR>
 nmap <silent> <leader>v :TestVisit<CR>
 "nmap <silent> <leader>r :Tmux rubocop<CR>
+nmap <silent> <leader>h :Tmux mix format<CR>
 
 nnoremap <leader>ra :VtrAttachToPane<cr>
 nnoremap <leader>rO :VtrReorientRunner<cr>
@@ -242,7 +247,8 @@ nnoremap <leader>d :Dash<CR>
 nnoremap <CR> :noh<CR><CR>
 
 " Set color details
-colorscheme molokai
+"colorscheme molokai
+colorscheme papercolor
 
 " Settings for Ale
 "let g:ale_linters = { 'javascript': ['standard'], }
@@ -280,4 +286,4 @@ endfunc
 "let g:syntastic_javascript_checkers = ['jshint']
 "let g:syntastic_loc_list_height = 5
 
-
+"map <leader>h :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>

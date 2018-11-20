@@ -165,8 +165,9 @@ let g:scratch_persistence_file = 'project-notes.txt'
 
 " Vim-Test options
 "let test#strategy = "neoterm"
+"let g:neoterm_default_mod = "vertical"
+"let g:neoterm_autoscroll = "1"
 "let test#strategy = "neovim"
-"let g:neoterm_position = "vertical"
 
 let test#strategy = "tslime"
 "let test#strategy = "vtr"

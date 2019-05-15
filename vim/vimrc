@@ -34,7 +34,7 @@ Plugin 'mtth/scratch.vim' " Scratch pad
 "Plugin 'christoomey/vim-system-copy' " System clipboard copy
 Plugin 'christoomey/vim-tmux-navigator' " tmux / vim navigation
 "Plugin 'Syntastic'   " syntax checking
-Plugin 'w0rp/ale' " syntax checking
+"Plugin 'w0rp/ale' " syntax checking
 Plugin 'terryma/vim-multiple-cursors' " sublime ish functionality
 Plugin 'tpope/vim-repeat' " better . support
 "Plugin 'svermeulen/vim-easyclip'
@@ -279,7 +279,7 @@ colorscheme papercolor
 
 " Settings for Ale
 
-let g:ale_elixir_elixir_ls_release = '/Users/troys/Desktop/CI/criterion/ponglabs_broker/.elixir_ls/rel'
+"let g:ale_elixir_elixir_ls_release = '/Users/troys/Desktop/CI/criterion/ponglabs_broker/.elixir_ls/rel'
 
 "let g:ale_lint_on_text_changed = 'never'
 "let g:ale_lint_on_enter = 0

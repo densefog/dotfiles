@@ -42,7 +42,7 @@ Plugin 'surround.vim'
 Plugin 'airblade/vim-gitgutter'
 "Plugin 'ervandew/supertab'
 Plugin 'tpope/vim-abolish'
-Plugin 'MattesGroeger/vim-bookmarks' " bookmarks
+"Plugin 'MattesGroeger/vim-bookmarks' " bookmarks
 " Pane plugins for vim-test
 Plugin 'janko-m/vim-test' " Shortcuts for testing
 "Plugin 'christoomey/vim-tmux-runner'
@@ -50,6 +50,7 @@ Plugin 'janko-m/vim-test' " Shortcuts for testing
 Plugin 'jgdavey/tslime.vim' " Not the original
 "Plugin 'kassio/neoterm'
 Plugin 'terryma/vim-smooth-scroll' " Smooth scrolling
+Plugin 'kshenoy/vim-signature' " display marks
 
 " Fuzzy Finder
 Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }

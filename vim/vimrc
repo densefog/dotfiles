@@ -94,6 +94,9 @@ let g:deoplete#enable_at_startup = 1
 " use tab for completion
 inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
+"Plugin 'neoclide/coc.nvim@release'
+"Plugin 'https://github.com/neoclide/coc.nvim/releases/latest'
+
 "let g:AutoPairsMapCR=0
 "let g:deoplete#enable_at_startup = 1
 "let g:deoplete#enable_smart_case = 1
@@ -209,7 +212,7 @@ nmap <silent> <leader>a :TestSuite<CR>
 nmap <silent> <leader>l :TestLast<CR>
 nmap <silent> <leader>v :TestVisit<CR>
 "nmap <silent> <leader>r :Tmux rubocop<CR>
-nmap <silent> <leader>h :Tmux mix format<CR>
+nmap <silent> <leader>h :Tmux mix run lib/one_import/import_floors_new.exs<CR>
 
 nnoremap <leader>ra :VtrAttachToPane<cr>
 nnoremap <leader>rO :VtrReorientRunner<cr>

@@ -1,82 +1,77 @@
 let mapleader=","
-
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'gmarik/Vundle.vim'
+" Plugin Manager
+call plug#begin('~/.config/nvim/plugged')
 
-" My plugins
-
-Plugin 'sheerun/vim-polyglot' " multi language pack
-Plugin 'tpope/vim-rails' " for rails
-Plugin 'tpope/vim-rake' " for rake
-"Plugin 'tpope/vim-bundler' " for bundler
-"Plugin 'thoughtbot/vim-rspec'
-Plugin 'scrooloose/nerdtree' " side nav tree
-Plugin 'jlanzarotta/bufexplorer' " selecting open files in buffer
-Plugin 'scrooloose/nerdcommenter' " commenting lines
-"Plugin 'vim-scripts/ctrlp.vim'
-Plugin 'mileszs/ack.vim' " search in files
-Plugin 'skwp/greplace.vim' " Gsearch and Greplace for text in files
-Plugin 'coderifous/textobj-word-column.vim' " Visually select columns
-"Plugin 'hail2u/vim-css3-syntax'
-Plugin 'tpope/vim-endwise' " Smart function ending
-Plugin 'tpope/vim-eunuch' " Unix commands
-Plugin 'kopischke/vim-fetch' "Go to line and column in files
-Plugin 'tpope/vim-fugitive' " Git integration
-Plugin 'tpope/vim-unimpaired'   " Shortcuts for git integration
-"Plugin 'pangloss/vim-javascript' " JS highlighting
-"Plugin 'christoomey/vim-rfactory' " Rfactory for navigating to factories
-Plugin 'mtth/scratch.vim' " Scratch pad
-"Plugin 'christoomey/vim-system-copy' " System clipboard copy
-Plugin 'christoomey/vim-tmux-navigator' " tmux / vim navigation
-"Plugin 'Syntastic'   " syntax checking
-"Plugin 'w0rp/ale' " syntax checking
-Plugin 'terryma/vim-multiple-cursors' " sublime ish functionality
-Plugin 'tpope/vim-repeat' " better . support
-"Plugin 'svermeulen/vim-easyclip'
-Plugin 'surround.vim'
-Plugin 'airblade/vim-gitgutter'
-"Plugin 'ervandew/supertab'
-"Plugin 'tpope/vim-abolish'
-"Plugin 'MattesGroeger/vim-bookmarks' " bookmarks
-" Pane plugins for vim-test
-Plugin 'janko-m/vim-test' " Shortcuts for testing
-"Plugin 'christoomey/vim-tmux-runner'
-"Plugin 'tpope/vim-dispatch'  " TPope's test integration
-Plugin 'jgdavey/tslime.vim' " Not the original
-"Plugin 'kassio/neoterm'
-Plugin 'terryma/vim-smooth-scroll' " Smooth scrolling
-Plugin 'kshenoy/vim-signature' " display marks
+Plug 'sheerun/vim-polyglot' " multi language pack
+Plug 'tpope/vim-rails' " for rails
+Plug 'tpope/vim-rake' " for rake
+"Plug 'tpope/vim-bundler' " for bundler
+"Plug 'thoughtbot/vim-rspec'
+Plug 'scrooloose/nerdtree' " side nav tree
+Plug 'jlanzarotta/bufexplorer' " selecting open files in buffer
+Plug 'scrooloose/nerdcommenter' " commenting lines
+"Plug 'vim-scripts/ctrlp.vim'
+Plug 'mileszs/ack.vim' " search in files
+Plug 'skwp/greplace.vim' " Gsearch and Greplace for text in files
+Plug 'coderifous/textobj-word-column.vim' " Visually select columns
+"Plug 'hail2u/vim-css3-syntax'
+Plug 'tpope/vim-endwise' " Smart function ending
+Plug 'tpope/vim-eunuch' " Unix commands
+Plug 'kopischke/vim-fetch' "Go to line and column in files
+Plug 'tpope/vim-fugitive' " Git integration
+Plug 'tpope/vim-unimpaired'   " Shortcuts for git integration
+"Plug 'pangloss/vim-javascript' " JS highlighting
+"Plug 'christoomey/vim-rfactory' " Rfactory for navigating to factories
+Plug 'mtth/scratch.vim' " Scratch pad
+"Plug 'christoomey/vim-system-copy' " System clipboard copy
+Plug 'christoomey/vim-tmux-navigator' " tmux / vim navigation
+"Plug 'Syntastic'   " syntax checking
+"Plug 'w0rp/ale' " syntax checking
+Plug 'terryma/vim-multiple-cursors' " sublime ish functionality
+Plug 'tpope/vim-repeat' " better . support
+"Plug 'svermeulen/vim-easyclip'
+Plug 'tpope/vim-surround'
+Plug 'airblade/vim-gitgutter'
+"Plug 'ervandew/supertab'
+"Plug 'tpope/vim-abolish'
+"Plug 'MattesGroeger/vim-bookmarks' " bookmarks
+" Pane Plugs for vim-test
+Plug 'janko-m/vim-test' " Shortcuts for testing
+"Plug 'christoomey/vim-tmux-runner'
+"Plug 'tpope/vim-dispatch'  " TPope's test integration
+Plug 'jgdavey/tslime.vim' " Not the original
+"Plug 'kassio/neoterm'
+Plug 'terryma/vim-smooth-scroll' " Smooth scrolling
+Plug 'kshenoy/vim-signature' " display marks
 
 " Fuzzy Finder
-Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plugin 'junegunn/fzf.vim'
-"Plugin 'vim-scripts/ctrlp.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+"Plug 'vim-scripts/ctrlp.vim'
 
 " Airline styling
-"Plugin 'vim-airline/vim-airline'
-"Plugin 'vim-airline/vim-airline-themes'
-Plugin 'flazz/vim-colorschemes'
-Plugin 'rizzatti/dash.vim'
-Plugin 'kburdett/vim-nuuid' " uuid gen
+"Plug 'vim-airline/vim-airline'
+"Plug 'vim-airline/vim-airline-themes'
+Plug 'flazz/vim-colorschemes'
+Plug 'rizzatti/dash.vim'
+Plug 'kburdett/vim-nuuid' " uuid gen
 
-"Plugin 'joonty/vdebug' " Multiple language debugger
+"Plug 'joonty/vdebug' " Multiple language debugger
 
 " Tags for code lookup
-Plugin 'ludovicchabant/vim-gutentags'
+Plug 'ludovicchabant/vim-gutentags'
 let g:gutentags_cache_dir = '~/.tags_cache'
 
 " UltiSnips
 " #########
 " Track the engine.
-"Plugin 'SirVer/ultisnips'
+"Plug 'SirVer/ultisnips'
 
 " Snippets are separated from the engine. Add this if you want them:
-"Plugin 'honza/vim-snippets'
+"Plug 'honza/vim-snippets'
 
 "" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 "let g:UltiSnipsExpandTrigger="<tab>"
@@ -90,15 +85,14 @@ let g:gutentags_cache_dir = '~/.tags_cache'
 "let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/UltiSnips']
 
 " Completions
-Plugin 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 let g:deoplete#enable_at_startup = 1
 " use tab for completion
 inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
-
-"Plugin 'neoclide/coc.nvim@release'
-"Plugin 'neoclide/coc.nvim@release'
-"Plugin 'https://github.com/neoclide/coc.nvim/releases/latest'
+"Plug 'neoclide/coc.nvim@release'
+"Plug 'neoclide/coc.nvim@release'
+"Plug 'https://github.com/neoclide/coc.nvim/releases/latest'
 
 "let g:AutoPairsMapCR=0
 "let g:deoplete#enable_at_startup = 1
@@ -108,12 +102,10 @@ inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 "inoremap <expr><CR> pumvisible() ? deoplete#mappings#close_popup() : "\<CR>"
 
 " Better terminal integration, cursor shapes, buffer updates
-"Plugin 'wincent/terminus'
-Plugin 'slashmili/alchemist.vim' " Elixir integration
+"Plug 'wincent/terminus'
+Plug 'slashmili/alchemist.vim' " Elixir integration
 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
+call plug#end()
 
 set ttyfast " Faster redrawing
 
@@ -324,3 +316,5 @@ colorscheme papercolor
 "let g:syntastic_loc_list_height = 5
 
 "map <leader>h :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+
+

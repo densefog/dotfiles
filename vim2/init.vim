@@ -90,10 +90,6 @@ let g:deoplete#enable_at_startup = 1
 " use tab for completion
 inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
-"Plug 'neoclide/coc.nvim@release'
-"Plug 'neoclide/coc.nvim@release'
-"Plug 'https://github.com/neoclide/coc.nvim/releases/latest'
-
 "let g:AutoPairsMapCR=0
 "let g:deoplete#enable_at_startup = 1
 "let g:deoplete#enable_smart_case = 1
@@ -103,7 +99,10 @@ inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
 " Better terminal integration, cursor shapes, buffer updates
 "Plug 'wincent/terminus'
-Plug 'slashmili/alchemist.vim' " Elixir integration
+
+"Plug 'slashmili/alchemist.vim' " Elixir integration
+Plug 'elixir-lsp/elixir-ls', { 'do': { -> g:ElixirLS.compile() } }
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 call plug#end()
 
@@ -317,4 +316,49 @@ colorscheme papercolor
 
 "map <leader>h :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
+" Settings for Elixir LS / COC
+let g:coc_global_extensions = ['coc-elixir', 'coc-diagnostic']
+
+let g:ElixirLS = {}
+let ElixirLS.path = stdpath('config').'/plugged/elixir-ls'
+let ElixirLS.lsp = ElixirLS.path.'/release/language_server.sh'
+let ElixirLS.cmd = join([
+        \ 'asdf install &&',
+        \ 'mix do',
+        \ 'local.hex --force --if-missing,',
+        \ 'local.rebar --force,',
+        \ 'deps.get,',
+        \ 'compile,',
+        \ 'elixir_ls.release'
+        \ ], ' ')
+
+function ElixirLS.on_stdout(_job_id, data, _event)
+  let self.output[-1] .= a:data[0]
+  call extend(self.output, a:data[1:])
+endfunction
+
+let ElixirLS.on_stderr = function(ElixirLS.on_stdout)
+
+function ElixirLS.on_exit(_job_id, exitcode, _event)
+  if a:exitcode[0] == 0
+    echom '>>> ElixirLS compiled'
+  else
+    echoerr join(self.output, ' ')
+    echoerr '>>> ElixirLS compilation failed'
+  endif
+endfunction
+
+function ElixirLS.compile()
+  let me = copy(g:ElixirLS)
+  let me.output = ['']
+  echom '>>> compiling ElixirLS'
+  let me.id = jobstart('cd ' . me.path . ' && git pull && ' . me.cmd, me)
+endfunction
+
+" Then, update the Elixir language server
+call coc#config('elixir', {
+  \ 'command': g:ElixirLS.lsp,
+  \ 'filetypes': ['elixir', 'eelixir']
+  \})
+call coc#config('elixir.pathToElixirLS', g:ElixirLS.lsp)
 

@@ -8,87 +8,80 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'sheerun/vim-polyglot' " multi language pack
 Plug 'tpope/vim-rails' " for rails
 Plug 'tpope/vim-rake' " for rake
-"Plug 'tpope/vim-bundler' " for bundler
-"Plug 'thoughtbot/vim-rspec'
 Plug 'scrooloose/nerdtree' " side nav tree
 Plug 'jlanzarotta/bufexplorer' " selecting open files in buffer
 Plug 'scrooloose/nerdcommenter' " commenting lines
-"Plug 'vim-scripts/ctrlp.vim'
 Plug 'mileszs/ack.vim' " search in files
 Plug 'skwp/greplace.vim' " Gsearch and Greplace for text in files
 Plug 'coderifous/textobj-word-column.vim' " Visually select columns
-"Plug 'hail2u/vim-css3-syntax'
 Plug 'tpope/vim-endwise' " Smart function ending
 Plug 'tpope/vim-eunuch' " Unix commands
 Plug 'kopischke/vim-fetch' "Go to line and column in files
 Plug 'tpope/vim-fugitive' " Git integration
 Plug 'tpope/vim-unimpaired'   " Shortcuts for git integration
-"Plug 'pangloss/vim-javascript' " JS highlighting
-"Plug 'christoomey/vim-rfactory' " Rfactory for navigating to factories
 Plug 'mtth/scratch.vim' " Scratch pad
-"Plug 'christoomey/vim-system-copy' " System clipboard copy
 Plug 'christoomey/vim-tmux-navigator' " tmux / vim navigation
-"Plug 'Syntastic'   " syntax checking
-"Plug 'w0rp/ale' " syntax checking
+Plug 'w0rp/ale' " syntax checking
 Plug 'terryma/vim-multiple-cursors' " sublime ish functionality
 Plug 'tpope/vim-repeat' " better . support
-"Plug 'svermeulen/vim-easyclip'
 Plug 'tpope/vim-surround'
 Plug 'airblade/vim-gitgutter'
-"Plug 'ervandew/supertab'
-"Plug 'tpope/vim-abolish'
-"Plug 'MattesGroeger/vim-bookmarks' " bookmarks
-" Pane Plugs for vim-test
 Plug 'janko-m/vim-test' " Shortcuts for testing
-"Plug 'christoomey/vim-tmux-runner'
-"Plug 'tpope/vim-dispatch'  " TPope's test integration
 Plug 'jgdavey/tslime.vim' " Not the original
-"Plug 'kassio/neoterm'
 Plug 'terryma/vim-smooth-scroll' " Smooth scrolling
 Plug 'kshenoy/vim-signature' " display marks
 
 " Fuzzy Finder
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-"Plug 'vim-scripts/ctrlp.vim'
 
 " Airline styling
-"Plug 'vim-airline/vim-airline'
-"Plug 'vim-airline/vim-airline-themes'
 Plug 'flazz/vim-colorschemes'
 Plug 'rizzatti/dash.vim'
 Plug 'kburdett/vim-nuuid' " uuid gen
 
-"Plug 'joonty/vdebug' " Multiple language debugger
-
 " Tags for code lookup
-Plug 'ludovicchabant/vim-gutentags'
-let g:gutentags_cache_dir = '~/.tags_cache'
+" Can this be skipped now with ElixirLS?
+"Plug 'ludovicchabant/vim-gutentags'
+"let g:gutentags_cache_dir = '~/.tags_cache'
+"
+" Completions
+"Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+"let g:deoplete#enable_at_startup = 1
+"" use tab for completion
+"inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+
+" Elixir Integration
+"Plug 'slashmili/alchemist.vim'
+"Plug 'elixir-lsp/elixir-ls', { 'do': { -> g:ElixirLS.compile() } }
+"Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" To look into
+"Plug 'christoomey/vim-system-copy' " System clipboard copy
+"Plug 'svermeulen/vim-easyclip'
+"Plug 'Syntastic'   " syntax checking
+"Plug 'ervandew/supertab'
+"Plug 'tpope/vim-abolish'
+"Plug 'MattesGroeger/vim-bookmarks' " bookmarks
+"Plug 'christoomey/vim-tmux-runner'
+"Plug 'tpope/vim-dispatch'  " TPope's test integration
+"Plug 'kassio/neoterm'
+"Plug 'vim-airline/vim-airline'
+"Plug 'vim-airline/vim-airline-themes'
+"Plug 'joonty/vdebug' " Multiple language debugger
+"Plug 'honza/vim-snippets'
+"Plug 'wincent/terminus' " better terminal integration
 
 " UltiSnips
 " #########
-" Track the engine.
 "Plug 'SirVer/ultisnips'
-
-" Snippets are separated from the engine. Add this if you want them:
-"Plug 'honza/vim-snippets'
-
-"" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 "let g:UltiSnipsExpandTrigger="<tab>"
 ""let g:UltiSnipsExpandTrigger="<c-e>"
 "let g:UltiSnipsListSnippets="<c-l>"
 "let g:UltiSnipsJumpForwardTrigger="<c-b>"
 "let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-
-"" If you want :UltiSnipsEdit to split your window.
 "let g:UltiSnipsEditSplit="vertical"
 "let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/UltiSnips']
-
-" Completions
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-let g:deoplete#enable_at_startup = 1
-" use tab for completion
-inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
 "let g:AutoPairsMapCR=0
 "let g:deoplete#enable_at_startup = 1
@@ -96,13 +89,6 @@ inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 "imap <expr><TAB> pumvisible() ? "\<C-n>" : neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 "imap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
 "inoremap <expr><CR> pumvisible() ? deoplete#mappings#close_popup() : "\<CR>"
-
-" Better terminal integration, cursor shapes, buffer updates
-"Plug 'wincent/terminus'
-
-"Plug 'slashmili/alchemist.vim' " Elixir integration
-Plug 'elixir-lsp/elixir-ls', { 'do': { -> g:ElixirLS.compile() } }
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 call plug#end()
 
@@ -141,6 +127,7 @@ set wildmenu                  " enable command-completion window
 set wildmode=list:longest     " list all matches and complete til longest common match
 set listchars+=tab:\ \
 set termguicolors
+
 "set tags+='~/.tags_cache'
 let g:rehash256 = 1
 
@@ -164,13 +151,11 @@ let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -g ""'
 let g:fzf_action = {  'ctrl-t': 'tab split', 'ctrl-h': 'split', 'ctrl-v': 'vsplit' }
 
 "command! -bang -nargs=* Rg call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --color "always" '.shellescape(<q-args>), 1, <bang>0)
-
 "command! -bang -nargs=* Rg call fzf#vim#grep('rg --column --line-number --no-heading --color=always '.shellescape(<q-args>), 1, <bang>0 ? fzf#vim#with_preview('up:60%') : fzf#vim#with_preview('right:50%:hidden', '?'), <bang>0)
 
 " For greplace settings
 set grepprg=ag
 let g:grep_cmd_opts = '--line-numbers --noheading'
-
 
 "let g:ctrlp_extensions = ['buffertag']
 "nnoremap <leader>r :CtrlPBufTag<CR>
@@ -185,7 +170,7 @@ map <F3> :source ~/.vim_session <cr>     " And load session with F3
 " Scratch pad options
 " let g:scratch_horizontal = 1
 " let g:scratch_height = 20
-let g:scratch_persistence_file = 'project-notes.txt'
+" let g:scratch_persistence_file = 'project-notes.txt'
 
 " Vim-Test options
 "let test#strategy = "neoterm"
@@ -206,7 +191,8 @@ nmap <silent> <leader>a :TestSuite<CR>
 nmap <silent> <leader>l :TestLast<CR>
 nmap <silent> <leader>v :TestVisit<CR>
 "nmap <silent> <leader>r :Tmux rubocop<CR>
-nmap <silent> <leader>h :Tmux mix run lib/one_import/import_floors_new.exs<CR>
+"nmap <silent> <leader>h :Tmux mix run lib/one_import/import_floors_new.exs<CR>
+nmap <silent> <leader>h :Tmux mtf<CR>
 
 nnoremap <leader>ra :VtrAttachToPane<cr>
 nnoremap <leader>rO :VtrReorientRunner<cr>
@@ -218,17 +204,17 @@ nnoremap <leader>rf :VtrFocusRunner<cr>
 nnoremap <leader>rd :VtrDetachRunner<cr>
 nnoremap <leader>rC :VtrClearRunner<cr>
 
-fun! <SID>StripTrailingWhitespaces()
-    let l = line(".")
-    let c = col(".")
-    %s/\s\+$//e
-    call cursor(l, c)
-endfun
-autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
+"fun! <SID>StripTrailingWhitespaces()
+    "let l = line(".")
+    "let c = col(".")
+    "%s/\s\+$//e
+    "call cursor(l, c)
+"endfun
+"autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 
 " Reload vim on vimrc changes
-autocmd! BufWritePost ~/.vim/vimrc  source ~/.vim/vimrc       " source .vimrc on save
-autocmd! VimResized * :wincmd =                       " automatically rebalance windows on vim resize
+"autocmd! BufWritePost ~/.vim/vimrc  source ~/.vim/vimrc       " source .vimrc on save
+"autocmd! VimResized * :wincmd =                       " automatically rebalance windows on vim resize
 
 nnoremap j gj
 nnoremap k gk
@@ -272,20 +258,43 @@ nnoremap <leader>d :Dash<CR>
 nnoremap <CR> :noh<CR><CR>
 
 " Set color details
-"colorscheme molokai
 colorscheme papercolor
 
 " Settings for Ale
 
-"let g:ale_elixir_elixir_ls_release = '/Users/troys/Desktop/CI/criterion/ponglabs_broker/.elixir_ls/rel'
+set completeopt=menu,menuone,preview,noselect,noinsert
+let g:ale_completion_enabled = 1
+
+augroup elixir
+  nnoremap <leader>r :! elixir %<cr>
+  autocmd FileType elixir nnoremap <c-]> :ALEGoToDefinition<cr>
+augroup END
+
+let g:ale_linters = {}
+let g:ale_linters.scss = ['stylelint']
+let g:ale_linters.css = ['stylelint']
+let g:ale_linters.elixir = ['elixir-ls', 'credo']
+
+let g:ale_fixers = {'*': ['remove_trailing_lines', 'trim_whitespace']}
+let g:ale_fixers.javascript = ['eslint']
+let g:ale_fixers.scss = ['stylelint']
+let g:ale_fixers.css = ['stylelint']
+let g:ale_fixers.elm = ['format']
+let g:ale_fixers.elixir = ['mix_format']
+
+let g:ale_elixir_elixir_ls_release = '/Users/troys/elixir-ls/rel'
+let g:ale_sign_column_always = 1
+let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
+let g:ale_sign_error = '✗'
+let g:ale_sign_warning = '⚠'
+let g:ale_fix_on_save = 1
+
+"nnoremap df :ALEFix<cr>
 
 "let g:ale_lint_on_text_changed = 'never'
 "let g:ale_lint_on_enter = 0
 "let g:ale_sign_column_always = 1
-"let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
 "let g:ale_javascript_eslint_executable = 'eslint_d'
-"let g:ale_sign_error = '✗'
-"let g:ale_sign_warning = '⚠'
 
 "augroup AleGroup
     "autocmd!
@@ -299,66 +308,49 @@ colorscheme papercolor
     "let g:ale_enabled = 1
 "endfunc
 
-" Syntastic
-"set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
-"set statusline+=%h%M%r%w
-
-"set statusline=[%n]\ %<%.99f\ %h%w%m%r%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%y%=%-16(\ %l,%c-%v\ %)%P
-
-"let g:syntastic_always_populate_loc_list = 1
-"let g:syntastic_auto_loc_list = 0
-"let g:syntastic_check_on_open = 1
-"let g:syntastic_check_on_wq = 0
-"let g:syntastic_javascript_checkers = ['jshint']
-"let g:syntastic_loc_list_height = 5
-
-"map <leader>h :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
-
 " Settings for Elixir LS / COC
-let g:coc_global_extensions = ['coc-elixir', 'coc-diagnostic']
+"let g:coc_global_extensions = ['coc-elixir', 'coc-diagnostic']
 
-let g:ElixirLS = {}
-let ElixirLS.path = stdpath('config').'/plugged/elixir-ls'
-let ElixirLS.lsp = ElixirLS.path.'/release/language_server.sh'
-let ElixirLS.cmd = join([
-        \ 'asdf install &&',
-        \ 'mix do',
-        \ 'local.hex --force --if-missing,',
-        \ 'local.rebar --force,',
-        \ 'deps.get,',
-        \ 'compile,',
-        \ 'elixir_ls.release'
-        \ ], ' ')
+"let g:ElixirLS = {}
+"let ElixirLS.path = stdpath('config').'/plugged/elixir-ls'
+"let ElixirLS.lsp = ElixirLS.path.'/release/language_server.sh'
+"let ElixirLS.cmd = join([
+        "\ 'asdf install &&',
+        "\ 'mix do',
+        "\ 'local.hex --force --if-missing,',
+        "\ 'local.rebar --force,',
+        "\ 'deps.get,',
+        "\ 'compile,',
+        "\ 'elixir_ls.release'
+        "\ ], ' ')
 
-function ElixirLS.on_stdout(_job_id, data, _event)
-  let self.output[-1] .= a:data[0]
-  call extend(self.output, a:data[1:])
-endfunction
+"function ElixirLS.on_stdout(_job_id, data, _event)
+  "let self.output[-1] .= a:data[0]
+  "call extend(self.output, a:data[1:])
+"endfunction
 
-let ElixirLS.on_stderr = function(ElixirLS.on_stdout)
+"let ElixirLS.on_stderr = function(ElixirLS.on_stdout)
 
-function ElixirLS.on_exit(_job_id, exitcode, _event)
-  if a:exitcode[0] == 0
-    echom '>>> ElixirLS compiled'
-  else
-    echoerr join(self.output, ' ')
-    echoerr '>>> ElixirLS compilation failed'
-  endif
-endfunction
+"function ElixirLS.on_exit(_job_id, exitcode, _event)
+  "if a:exitcode[0] == 0
+    "echom '>>> ElixirLS compiled'
+  "else
+    "echoerr join(self.output, ' ')
+    "echoerr '>>> ElixirLS compilation failed'
+  "endif
+"endfunction
 
-function ElixirLS.compile()
-  let me = copy(g:ElixirLS)
-  let me.output = ['']
-  echom '>>> compiling ElixirLS'
-  let me.id = jobstart('cd ' . me.path . ' && git pull && ' . me.cmd, me)
-endfunction
+"function ElixirLS.compile()
+  "let me = copy(g:ElixirLS)
+  "let me.output = ['']
+  "echom '>>> compiling ElixirLS'
+  "let me.id = jobstart('cd ' . me.path . ' && git pull && ' . me.cmd, me)
+"endfunction
 
-" Then, update the Elixir language server
-call coc#config('elixir', {
-  \ 'command': g:ElixirLS.lsp,
-  \ 'filetypes': ['elixir', 'eelixir']
-  \})
-call coc#config('elixir.pathToElixirLS', g:ElixirLS.lsp)
+"" Then, update the Elixir language server
+"call coc#config('elixir', {
+  "\ 'command': g:ElixirLS.lsp,
+  "\ 'filetypes': ['elixir', 'eelixir']
+  "\})
+"call coc#config('elixir.pathToElixirLS', g:ElixirLS.lsp)
 

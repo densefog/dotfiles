@@ -1,0 +1,92 @@
+snippet io "IO Inspect"
+|> IO.inspect(label: "${1: Here}")
+endsnippet
+
+snippet rbb "Build Boolean"
+%{
+	title: "$1",
+	data_key: "$2",
+	data_key_value: data["$2"]
+}
+|> build_boolean()
+|> add_form_fields(context)
+endsnippet
+
+snippet rbmc "Build Multiple Choice"
+%{
+	title: "$1",
+	data_key: "$2",
+	data_key_value: data["$2"],
+	placeholder: "Select $3"
+}
+|> build_multiple_choice(choices)
+|> add_form_fields(context)
+endsnippet
+
+snippet rbt "Build Text"
+%{
+	title: "$1",
+	placeholder: "Please enter $2",
+	data_key: "$3",
+	data_key_value: data["$3"]
+}
+|> build_text()
+|> add_form_fields(context)
+endsnippet
+
+snippet rbc "Build Country"
+%{
+	title: "${1:Country}",
+	placeholder: "Please select $2",
+	data_key: "$3",
+	data_key_value: data["$3"]
+}
+|> build_country_multiple_choice(@country_choices)
+|> add_form_fields(context)
+endsnippet
+
+snippet rbta "Build Text Area"
+%{
+	title: "$1",
+	placeholder: "$2",
+	data_key: "$3",
+	data_key_value: data["$3"],
+	required: false
+}
+|> build_text_area()
+|> add_form_fields(context)
+endsnippet
+
+snippet rb$ "Build Currency"
+%{
+	title: "$1",
+	data_key: "$2",
+	data_key_value: data["$2"],
+	min: 1,
+	max: 999_999_999
+}
+|> build_currency()
+|> add_form_fields(context)
+endsnippet
+
+snippet rbf "Build File"
+%{
+	title: "$1",
+	data_key: "$2",
+	data_key_value: data["$2"],
+	placeholder: "Select a file",
+	required: false
+}
+|> build_file()
+|> add_form_fields(context)
+endsnippet
+
+snippet rbd "Build Date"
+%{
+	title: "$1",
+	data_key: "$2",
+	data_key_value: data["$2"]
+}
+|> build_date()
+|> add_form_fields(context)
+endsnippet

@@ -1,5 +1,6 @@
 [core]
 	excludesfile = /Users/troys/.gitignore_global
+	autocrlf = input
 [color]
         diff = auto
         status = auto
@@ -32,23 +33,29 @@
   br = branch
 	pf = push --force-with-lease
   lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
+  lgd = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cd)%C(bold blue)<%an>%Creset' --abbrev-commit
 	graph = log --graph -10 --branches --remotes --tags  --format=format:'%Cgreen%h %Creset• %<(75,trunc)%s (%cN, %cr) %Cred%d' --date-order
   showfiles = diff-tree --no-commit-id --name-status -r
   masterdiff = branch --merged master
+  developdiff = branch --merged develop
+  dd = branch --merged develop
   dt = difftool -d
+  wipeout = checkout -- .
+  sort = branch --sort=-committerdate
 
 [difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path =
+	cmd = /Applications/SourceTree.app/Contents/Resources/araxiscompare-w.sh -2 \"$LOCAL\" \"$REMOTE\"
+	path = 
 
 [mergetool "sourcetree"]
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
 
 [filter "lfs"]
-	smudge = git-lfs smudge %f
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
 	required = true
-	clean = git-lfs clean %f
 
 [user]
 	name = Troy Spruit
@@ -56,7 +63,7 @@
 [push]
   default = current
 [merge]
-  tool = araxis
+  tool = sourcetree
   ff = only
   #tool = opendiff
 [diff]
@@ -67,3 +74,10 @@
 [mergetool]
 	prompt = false
 	keepBackup = false
+[pull]
+	rebase = true
+[commit]
+  template = /Users/troys/.stCommitMsg
+[pager]
+  branch =
+

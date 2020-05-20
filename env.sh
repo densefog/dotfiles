@@ -53,9 +53,9 @@ alias cddate='cd $(date '+%Y-%m-%d')'
 alias mkdate='mkdir $(date '+%Y-%m-%d');cddate'
 alias mtf='mix test --failed'
 alias ltf='MIX_ENV=test mix list_test_failures'
-alias pongweb='cd /Users/troys/Desktop/CI/criterion/PongWebsite;git wipeout;git pull;npm install;npm run graphql;npm start'
-alias lj='cd /Users/troys/Desktop/CI/criterion/ponglabs_broker;rm -rf .user_monitor_storage/;mix run lib/one_import/load_jobs.exs'
-alias umv='cd /Users/troys/Desktop/CI/criterion/ponglabs_broker;mix run lib/one_import/user_monitor_validation.exs'
+alias pongweb='cd /Users/tspruit/Desktop/Ponglabs/PongWebsite;git wipeout;git pull;npm install;npm run graphql;npm start'
+#alias lj='cd /Users/tspruit/Desktop/CI/criterion/ponglabs_broker;rm -rf .user_monitor_storage/;mix run lib/one_import/load_jobs.exs'
+#alias umv='cd /Users/tspruit/Desktop/CI/criterion/ponglabs_broker;mix run lib/one_import/user_monitor_validation.exs'
 
 # Cheat variables
 export CHEAT_COLORS=true
@@ -64,3 +64,6 @@ export CHEAT_COLORSCHEME=dark
 #alias mkdate="mkdir $(date '+%Y-%m-%d');cd $(date '+%Y-%m-%d')"
 #. $HOME/.asdf/asdf.sh
 #export PATH="/usr/local/opt/ncurses/bin:$PATH"
+#:export KERL_CONFIGURE_OPTIONS="--without-javac --with-ssl=$(brew --prefix openssl)"
+
+export KERL_CONFIGURE_OPTIONS="--disable-debug --disable-silent-rules --without-javac --enable-shared-zlib --enable-dynamic-ssl-lib --enable-hipe --enable-sctp --enable-smp-support --enable-threads --enable-kernel-poll --enable-wx --enable-darwin-64bit --with-ssl=$(brew --prefix openssl)"

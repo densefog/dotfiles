@@ -45,7 +45,7 @@
 
 [difftool "sourcetree"]
 	cmd = /Applications/SourceTree.app/Contents/Resources/araxiscompare-w.sh -2 \"$LOCAL\" \"$REMOTE\"
-	path = 
+	path =
 
 [mergetool "sourcetree"]
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
@@ -76,8 +76,5 @@
 	keepBackup = false
 [pull]
 	rebase = true
-[commit]
-  template = /Users/troys/.stCommitMsg
 [pager]
   branch =
-

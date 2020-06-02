@@ -21,13 +21,17 @@ Plug 'tpope/vim-fugitive' " Git integration
 Plug 'tpope/vim-unimpaired'   " Shortcuts for git integration
 Plug 'mtth/scratch.vim' " Scratch pad
 Plug 'christoomey/vim-tmux-navigator' " tmux / vim navigation
-Plug 'w0rp/ale' " syntax checking
+Plug 'dense-analysis/ale' " syntax checking
 Plug 'terryma/vim-multiple-cursors' " sublime ish functionality
 Plug 'tpope/vim-repeat' " better . support
 Plug 'tpope/vim-surround'
 Plug 'airblade/vim-gitgutter'
 Plug 'janko-m/vim-test' " Shortcuts for testing
+
 Plug 'jgdavey/tslime.vim' " Not the original
+"Plug 'christoomey/vim-tmux-runner'
+"Plug 'kassio/neoterm'
+
 Plug 'terryma/vim-smooth-scroll' " Smooth scrolling
 Plug 'kshenoy/vim-signature' " display marks
 Plug 'tpope/vim-abolish' " convert string cases
@@ -173,12 +177,12 @@ map <F3> :source ~/.vim_session <cr>     " And load session with F3
 " let g:scratch_persistence_file = 'project-notes.txt'
 
 " Vim-Test options
-"let test#strategy = "neoterm"
+let test#strategy = "tslime"
 "let g:neoterm_default_mod = "vertical"
 "let g:neoterm_autoscroll = "1"
 "let test#strategy = "neovim"
 
-let test#strategy = "tslime"
+"let test#strategy = "tslime"
 "let test#strategy = "vtr"
 "let test#ruby#bundle_exec = 0
 "let g:VtrOrientation = "h"
@@ -194,15 +198,17 @@ nmap <silent> <leader>v :TestVisit<CR>
 "nmap <silent> <leader>h :Tmux mix run lib/one_import/import_floors_new.exs<CR>
 nmap <silent> <leader>h :Tmux mtf<CR>
 
-nnoremap <leader>ra :VtrAttachToPane<cr>
-nnoremap <leader>rO :VtrReorientRunner<cr>
-nnoremap <leader>rc :VtrSendCommandToRunner<cr>
-nnoremap <leader>rl :VtrSendLinesToRunner<cr>
-nnoremap <leader>ro :VtrOpenRunner<cr>
-nnoremap <leader>rk :VtrKillRunner<cr>
-nnoremap <leader>rf :VtrFocusRunner<cr>
-nnoremap <leader>rd :VtrDetachRunner<cr>
-nnoremap <leader>rC :VtrClearRunner<cr>
+let g:test#preserve_screen = 0
+
+"nnoremap <leader>ra :VtrAttachToPane<cr>
+"nnoremap <leader>rO :VtrReorientRunner<cr>
+"nnoremap <leader>rc :VtrSendCommandToRunner<cr>
+"nnoremap <leader>rl :VtrSendLinesToRunner<cr>
+"nnoremap <leader>ro :VtrOpenRunner<cr>
+"nnoremap <leader>rk :VtrKillRunner<cr>
+"nnoremap <leader>rf :VtrFocusRunner<cr>
+"nnoremap <leader>rd :VtrDetachRunner<cr>
+"nnoremap <leader>rC :VtrClearRunner<cr>
 
 "fun! <SID>StripTrailingWhitespaces()
     "let l = line(".")
@@ -282,7 +288,7 @@ let g:ale_fixers.css = ['stylelint']
 let g:ale_fixers.elm = ['format']
 let g:ale_fixers.elixir = ['mix_format']
 
-let g:ale_elixir_elixir_ls_release = '/Users/troys/elixir-ls/rel'
+let g:ale_elixir_elixir_ls_release = '/Users/tspruit/elixir-ls/rel'
 let g:ale_sign_column_always = 1
 let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
 let g:ale_sign_error = '✗'
@@ -291,9 +297,10 @@ let g:ale_fix_on_save = 1
 
 "nnoremap df :ALEFix<cr>
 
-"let g:ale_lint_on_text_changed = 'never'
-"let g:ale_lint_on_enter = 0
-"let g:ale_sign_column_always = 1
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_lint_on_enter = 0
+let g:ale_sign_column_always = 1
+let g:ale_lint_delay = 1000
 "let g:ale_javascript_eslint_executable = 'eslint_d'
 
 "augroup AleGroup

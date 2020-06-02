@@ -1,5 +1,5 @@
 [core]
-	excludesfile = /Users/troys/.gitignore_global
+	excludesfile = /Users/tspruit/.gitignore_global
 	autocrlf = input
 [color]
         diff = auto
@@ -59,7 +59,7 @@
 
 [user]
 	name = Troy Spruit
-	email = troy@collectiveidea.com
+	email = tspruit@criterion360.com
 [push]
   default = current
 [merge]

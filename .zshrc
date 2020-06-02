@@ -103,7 +103,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
 
-export PATH="/usr/local/opt/postgresql@11/bin:$PATH"
+#export PATH="/usr/local/opt/postgresql@11/bin:$PATH"
 #export PATH="/usr/local/opt/node@10/bin:$PATH"
 #export PATH="/usr/local/opt/node@6/bin:$PATH"
 
@@ -116,6 +116,6 @@ export CPPFLAGS="${CPPFLAGS} -I/usr/local/opt/zlib/include"
 
 # For pkg-config to find zlib you may need to set:
 export PKG_CONFIG_PATH="${PKG_CONFIG_PATH} /usr/local/opt/zlib/lib/pkgconfig"
-export PATH="/usr/local/opt/mysql-client@5.7/bin:$PATH"
+#export PATH="/usr/local/opt/mysql-client@5.7/bin:$PATH"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

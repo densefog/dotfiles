@@ -21,14 +21,17 @@ Plug 'tpope/vim-fugitive' " Git integration
 Plug 'tpope/vim-unimpaired'   " Shortcuts for git integration
 Plug 'mtth/scratch.vim' " Scratch pad
 Plug 'christoomey/vim-tmux-navigator' " tmux / vim navigation
-Plug 'dense-analysis/ale' " syntax checking
 Plug 'terryma/vim-multiple-cursors' " sublime ish functionality
 Plug 'tpope/vim-repeat' " better . support
 Plug 'tpope/vim-surround'
 Plug 'airblade/vim-gitgutter'
 Plug 'janko-m/vim-test' " Shortcuts for testing
 
-Plug 'jgdavey/tslime.vim' " Not the original
+Plug 'dense-analysis/ale' " syntax checking
+"Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+Plug 'aos/tslime.vim' " Not the original
+"Plug 'jgdavey/tslime.vim' " Not the original
 "Plug 'christoomey/vim-tmux-runner'
 "Plug 'kassio/neoterm'
 
@@ -131,6 +134,8 @@ set wildmenu                  " enable command-completion window
 set wildmode=list:longest     " list all matches and complete til longest common match
 set listchars+=tab:\ \
 set termguicolors
+set nobackup
+set nowritebackup
 
 "set tags+='~/.tags_cache'
 let g:rehash256 = 1
@@ -295,12 +300,14 @@ let g:ale_sign_error = '✗'
 let g:ale_sign_warning = '⚠'
 let g:ale_fix_on_save = 1
 
-"nnoremap df :ALEFix<cr>
-
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_enter = 0
 let g:ale_sign_column_always = 1
 let g:ale_lint_delay = 1000
+
+"Ale commented out below
+
+"nnoremap df :ALEFix<cr>
 "let g:ale_javascript_eslint_executable = 'eslint_d'
 
 "augroup AleGroup

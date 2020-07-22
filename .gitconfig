@@ -39,6 +39,7 @@
   masterdiff = branch --merged master
   developdiff = branch --merged develop
   dd = branch --merged develop
+  md = branch --merged master
   dt = difftool -d
   dtc = difftool -d --no-symlinks
   wipeout = checkout -- .

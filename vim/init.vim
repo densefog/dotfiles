@@ -30,10 +30,12 @@ Plug 'janko-m/vim-test' " Shortcuts for testing
 Plug 'dense-analysis/ale' " syntax checking
 "Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-Plug 'aos/tslime.vim' " Not the original
+"Plug 'aos/tslime.vim' " Not the original
 "Plug 'jgdavey/tslime.vim' " Not the original
 "Plug 'christoomey/vim-tmux-runner'
 "Plug 'kassio/neoterm'
+"Plug 'benmills/vimux'
+Plug 'esamattis/slimux'
 
 Plug 'terryma/vim-smooth-scroll' " Smooth scrolling
 Plug 'kshenoy/vim-signature' " display marks
@@ -182,7 +184,7 @@ map <F3> :source ~/.vim_session <cr>     " And load session with F3
 " let g:scratch_persistence_file = 'project-notes.txt'
 
 " Vim-Test options
-let test#strategy = "tslime"
+let test#strategy = "slimux"
 "let g:neoterm_default_mod = "vertical"
 "let g:neoterm_autoscroll = "1"
 "let test#strategy = "neovim"

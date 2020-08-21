@@ -56,6 +56,7 @@ alias ltf='MIX_ENV=test mix list_test_failures'
 alias pongweb='cd /Users/tspruit/Desktop/Ponglabs/PongWebsite;git wipeout;git pull;npm install;npm run graphql;npm start'
 alias pw='pongweb'
 alias ms='iex -S mix phx.server'
+alias mc='mix compile'
 #alias lj='cd /Users/tspruit/Desktop/CI/criterion/ponglabs_broker;rm -rf .user_monitor_storage/;mix run lib/one_import/load_jobs.exs'
 #alias umv='cd /Users/tspruit/Desktop/CI/criterion/ponglabs_broker;mix run lib/one_import/user_monitor_validation.exs'
 

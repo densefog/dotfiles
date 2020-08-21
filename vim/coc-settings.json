@@ -1,0 +1,5 @@
+{
+  "elixir.pathToElixirLS": "~/elixir-ls/rel/language_server.sh",
+  "codeLens.enable": true,
+  "coc.preferences.formatOnSaveFiletypes": ["css", "markdown", "elixir"]
+}

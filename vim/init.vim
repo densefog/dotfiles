@@ -27,8 +27,8 @@ Plug 'tpope/vim-surround'
 Plug 'airblade/vim-gitgutter'
 Plug 'janko-m/vim-test' " Shortcuts for testing
 
-Plug 'dense-analysis/ale' " syntax checking
-"Plug 'neoclide/coc.nvim', {'branch': 'release'}
+"Plug 'dense-analysis/ale' " syntax checking
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 "Plug 'aos/tslime.vim' " Not the original
 "Plug 'jgdavey/tslime.vim' " Not the original
@@ -38,7 +38,7 @@ Plug 'dense-analysis/ale' " syntax checking
 Plug 'esamattis/slimux'
 
 Plug 'terryma/vim-smooth-scroll' " Smooth scrolling
-Plug 'kshenoy/vim-signature' " display marks
+"Plug 'kshenoy/vim-signature' " display marks
 Plug 'tpope/vim-abolish' " convert string cases
 
 " Fuzzy Finder
@@ -64,7 +64,6 @@ Plug 'kburdett/vim-nuuid' " uuid gen
 " Elixir Integration
 "Plug 'slashmili/alchemist.vim'
 "Plug 'elixir-lsp/elixir-ls', { 'do': { -> g:ElixirLS.compile() } }
-"Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " To look into
 "Plug 'christoomey/vim-system-copy' " System clipboard copy
@@ -138,6 +137,10 @@ set listchars+=tab:\ \
 set termguicolors
 set nobackup
 set nowritebackup
+set cmdheight=2
+set updatetime=300
+set shortmess+=c
+set signcolumn=yes
 
 "set tags+='~/.tags_cache'
 let g:rehash256 = 1
@@ -244,7 +247,7 @@ nnoremap <c-w>] :wincmd =<cr>                                   " zoom out the c
 let g:multi_cursor_exit_from_insert_mode = 0
 let g:multi_cursor_exit_from_visual_mode = 0
 
-" Only highlight the screen line of the active buffer
+"" Only highlight the screen line of the active buffer
 augroup CursorLine
   au!
   au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
@@ -275,37 +278,37 @@ colorscheme papercolor
 
 " Settings for Ale
 
-set completeopt=menu,menuone,preview,noselect,noinsert
-let g:ale_completion_enabled = 1
+"set completeopt=menu,menuone,preview,noselect,noinsert
+"let g:ale_completion_enabled = 1
 
-augroup elixir
-  nnoremap <leader>r :! elixir %<cr>
-  autocmd FileType elixir nnoremap <c-]> :ALEGoToDefinition<cr>
-augroup END
+"augroup elixir
+  "nnoremap <leader>r :! elixir %<cr>
+  "autocmd FileType elixir nnoremap <c-]> :ALEGoToDefinition<cr>
+"augroup END
 
-let g:ale_linters = {}
-let g:ale_linters.scss = ['stylelint']
-let g:ale_linters.css = ['stylelint']
-let g:ale_linters.elixir = ['elixir-ls', 'credo']
+"let g:ale_linters = {}
+"let g:ale_linters.scss = ['stylelint']
+"let g:ale_linters.css = ['stylelint']
+"let g:ale_linters.elixir = ['elixir-ls', 'credo']
 
-let g:ale_fixers = {'*': ['remove_trailing_lines', 'trim_whitespace']}
-let g:ale_fixers.javascript = ['eslint']
-let g:ale_fixers.scss = ['stylelint']
-let g:ale_fixers.css = ['stylelint']
-let g:ale_fixers.elm = ['format']
-let g:ale_fixers.elixir = ['mix_format']
+"let g:ale_fixers = {'*': ['remove_trailing_lines', 'trim_whitespace']}
+"let g:ale_fixers.javascript = ['eslint']
+"let g:ale_fixers.scss = ['stylelint']
+"let g:ale_fixers.css = ['stylelint']
+"let g:ale_fixers.elm = ['format']
+"let g:ale_fixers.elixir = ['mix_format']
 
-let g:ale_elixir_elixir_ls_release = '/Users/tspruit/elixir-ls/rel'
-let g:ale_sign_column_always = 1
-let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
-let g:ale_sign_error = '✗'
-let g:ale_sign_warning = '⚠'
-let g:ale_fix_on_save = 1
+"let g:ale_elixir_elixir_ls_release = '/Users/tspruit/elixir-ls/rel'
+"let g:ale_sign_column_always = 1
+"let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
+"let g:ale_sign_error = '✗'
+"let g:ale_sign_warning = '⚠'
+"let g:ale_fix_on_save = 1
 
-let g:ale_lint_on_text_changed = 'never'
-let g:ale_lint_on_enter = 0
-let g:ale_sign_column_always = 1
-let g:ale_lint_delay = 1000
+"let g:ale_lint_on_text_changed = 'never'
+"let g:ale_lint_on_enter = 0
+"let g:ale_sign_column_always = 1
+"let g:ale_lint_delay = 1000
 
 "Ale commented out below
 
@@ -325,7 +328,83 @@ let g:ale_lint_delay = 1000
 "endfunc
 
 " Settings for Elixir LS / COC
-"let g:coc_global_extensions = ['coc-elixir', 'coc-diagnostic']
+"=================================
+let g:coc_global_extensions = ['coc-snippets', 'coc-prettier', 'coc-pairs', 'coc-json', 'coc-eslint', 'coc-bookmark', 'coc-tsserver', 'coc-markdownlint', 'coc-html', 'coc-elixir', 'coc-actions']
+
+" coc-bookmark
+nmap mm <Plug>(coc-bookmark-toggle)
+nmap `m <Plug>(coc-bookmark-next)
+nmap `n <Plug>(coc-bookmark-prev)
+
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+if has('nvim')
+  inoremap <silent><expr> <c-space> coc#refresh()
+else
+  inoremap <silent><expr> <c-@> coc#refresh()
+endif
+
+"if exists('*complete_info')
+  "inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+"else
+  "inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+"endif
+
+" Use `[g` and `]g` to navigate diagnostics
+" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+augroup mygroup
+  autocmd!
+  " Setup formatexpr specified filetype(s).
+  autocmd FileType typescript,json,elixir setl formatexpr=CocAction('formatSelected')
+  " Update signature help on jump placeholder.
+  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+augroup end
+
+" Use CTRL-S for selections ranges.
+" Requires 'textDocument/selectionRange' support of LS, ex: coc-tsserver
+nmap <silent> <C-s> <Plug>(coc-range-select)
+xmap <silent> <C-s> <Plug>(coc-range-select)
+
+" Add `:Format` command to format current buffer.
+command! -nargs=0 Format :call CocAction('format')
+
+" Add (Neo)Vim's native statusline support.
+" NOTE: Please see `:h coc-status` for integrations with external plugins that
+" provide custom statusline: lightline.vim, vim-airline.
+set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+
 
 "let g:ElixirLS = {}
 "let ElixirLS.path = stdpath('config').'/plugged/elixir-ls'

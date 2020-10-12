@@ -58,6 +58,8 @@ plugins=(git gitfast colored-man-pages colorize bower brew bundler common-aliase
 #export PATH="$PATH:/Users/tspruit/.rvm/gems/ruby-2.2.1/bin:/Users/tspruit/.rvm/gems/ruby-2.2.1@global/bin:/Users/tspruit/.rvm/rubies/ruby-2.2.1/bin:.bin:/usr/local/Cellar/pyenv-virtualenv/20160202/shims:/usr/local/Cellar/pyenv/20160310/libexec:/Users/tspruit/.pyenv/shims:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/tspruit/.rvm/bin:/Users/tspruit/bin:/usr/local/sbin"
 export PATH="$PATH:/Users/tspruit/.rvm/gems/ruby-2.2.1/bin:/Users/tspruit/.rvm/gems/ruby-2.2.1@global/bin:/Users/tspruit/.rvm/rubies/ruby-2.2.1/bin:.bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/tspruit/.rvm/bin:/Users/tspruit/bin:/usr/local/sbin"
 # export MANPATH="/usr/local/man:$MANPATH"
+#export NVM_AUTOLOAD=1
+#export NVM_LAZY=1
 
 source $ZSH/oh-my-zsh.sh
 
@@ -96,12 +98,12 @@ fpath=(/usr/local/share/zsh-completions $fpath)
 
 # Node Version Manager
 #export NVM_DIR="$HOME/.nvm"
-#. "/usr/local/opt/nvm/nvm.sh"
+#[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+#[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
 export NVM_DIR="$HOME/.nvm"
-[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
-[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
-
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+#[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 #export PATH="/usr/local/opt/postgresql@11/bin:$PATH"
 #export PATH="/usr/local/opt/node@10/bin:$PATH"

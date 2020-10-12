@@ -46,7 +46,7 @@
   sort = branch --sort=-committerdate
 
 [difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	cmd = /Applications/Sourcetree.app/Contents/Resources/araxiscompare-w.sh -2 \"$LOCAL\" \"$REMOTE\"
 	path = 
 
 [mergetool "sourcetree"]
@@ -80,3 +80,5 @@
 	rebase = true
 [pager]
   branch =
+[commit]
+	template = /Users/tspruit/.stCommitMsg

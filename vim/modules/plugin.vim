@@ -58,6 +58,9 @@ Plug 'kburdett/vim-nuuid' " uuid gen
 " Can this be skipped now with ElixirLS?
 Plug 'ludovicchabant/vim-gutentags'
 "
+"Snippets used through coc-snippets
+Plug 'honza/vim-snippets'
+"
 " Completions
 "Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 "let g:deoplete#enable_at_startup = 1
@@ -78,7 +81,6 @@ Plug 'ludovicchabant/vim-gutentags'
 "Plug 'vim-airline/vim-airline'
 "Plug 'vim-airline/vim-airline-themes'
 "Plug 'joonty/vdebug' " Multiple language debugger
-"Plug 'honza/vim-snippets'
 "Plug 'wincent/terminus' " better terminal integration
 
 call plug#end()

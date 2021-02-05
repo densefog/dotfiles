@@ -23,7 +23,7 @@ Plug 'tpope/vim-surround'
 Plug 'airblade/vim-gitgutter'
 Plug 'janko-m/vim-test' " Shortcuts for testing
 
-Plug 'dense-analysis/ale' " syntax checking
+"Plug 'dense-analysis/ale' " syntax checking
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "Plug 'neoclide/coc.nvim', { 'do': 'yarn install --frozen-lockfile' }
 

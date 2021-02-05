@@ -1,6 +1,7 @@
 [core]
 	excludesfile = /Users/tspruit/.gitignore_global
 	autocrlf = input
+	attributesfile = /Users/tspruit/.gitattributes
 [color]
         diff = auto
         status = auto

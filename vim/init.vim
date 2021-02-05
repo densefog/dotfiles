@@ -16,7 +16,7 @@ Plug 'skwp/greplace.vim' " Gsearch and Greplace for text in files
 Plug 'coderifous/textobj-word-column.vim' " Visually select columns
 Plug 'tpope/vim-endwise' " Smart function ending
 Plug 'tpope/vim-eunuch' " Unix commands
-Plug 'kopischke/vim-fetch' "Go to line and column in files
+Plug 'wsdjeg/vim-fetch' "Go to line and column in files
 Plug 'tpope/vim-fugitive' " Git integration
 Plug 'tpope/vim-unimpaired'   " Shortcuts for git integration
 Plug 'mtth/scratch.vim' " Scratch pad
@@ -27,8 +27,9 @@ Plug 'tpope/vim-surround'
 Plug 'airblade/vim-gitgutter'
 Plug 'janko-m/vim-test' " Shortcuts for testing
 
-"Plug 'dense-analysis/ale' " syntax checking
+Plug 'dense-analysis/ale' " syntax checking
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+"Plug 'neoclide/coc.nvim', { 'do': 'yarn install --frozen-lockfile' }
 
 "Plug 'aos/tslime.vim' " Not the original
 "Plug 'jgdavey/tslime.vim' " Not the original
@@ -45,15 +46,23 @@ Plug 'tpope/vim-abolish' " convert string cases
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
+" Bookmarks
+Plug 'MattesGroeger/vim-bookmarks'
+
 " Airline styling
-Plug 'flazz/vim-colorschemes'
+"Plug 'flazz/vim-colorschemes'
+Plug 'tomasiser/vim-code-dark'
 Plug 'rizzatti/dash.vim'
 Plug 'kburdett/vim-nuuid' " uuid gen
 
 " Tags for code lookup
 " Can this be skipped now with ElixirLS?
-"Plug 'ludovicchabant/vim-gutentags'
-"let g:gutentags_cache_dir = '~/.tags_cache'
+Plug 'ludovicchabant/vim-gutentags'
+let g:gutentags_cache_dir = '~/.tags_cache'
+let g:gutentags_ctags_exclude = ["*.min.js", "*.min.css", "build", "vendor", ".git", "node_modules", "*.vim/bundle/*", "__generated__", "_build"]
+"let g:gutentags_trace = 1
+
+
 "
 " Completions
 "Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -138,7 +147,7 @@ set termguicolors
 set nobackup
 set nowritebackup
 set cmdheight=2
-set updatetime=300
+set updatetime=200
 set shortmess+=c
 set signcolumn=yes
 
@@ -274,7 +283,8 @@ nnoremap <leader>d :Dash<CR>
 nnoremap <CR> :noh<CR><CR>
 
 " Set color details
-colorscheme papercolor
+colorscheme codedark
+"colorscheme gryffin
 
 " Settings for Ale
 
@@ -286,24 +296,24 @@ colorscheme papercolor
   "autocmd FileType elixir nnoremap <c-]> :ALEGoToDefinition<cr>
 "augroup END
 
-"let g:ale_linters = {}
-"let g:ale_linters.scss = ['stylelint']
-"let g:ale_linters.css = ['stylelint']
-"let g:ale_linters.elixir = ['elixir-ls', 'credo']
+let g:ale_linters = {}
+let g:ale_linters.scss = ['stylelint']
+let g:ale_linters.css = ['stylelint']
+let g:ale_linters.elixir = ['elixir-ls', 'credo']
 
-"let g:ale_fixers = {'*': ['remove_trailing_lines', 'trim_whitespace']}
-"let g:ale_fixers.javascript = ['eslint']
-"let g:ale_fixers.scss = ['stylelint']
-"let g:ale_fixers.css = ['stylelint']
-"let g:ale_fixers.elm = ['format']
-"let g:ale_fixers.elixir = ['mix_format']
+let g:ale_fixers = {'*': ['remove_trailing_lines', 'trim_whitespace']}
+let g:ale_fixers.javascript = ['eslint', 'remove_trailing_lines', 'trim_whitespace']
+let g:ale_fixers.scss = ['stylelint', 'remove_trailing_lines', 'trim_whitespace']
+let g:ale_fixers.css = ['stylelint', 'remove_trailing_lines', 'trim_whitespace']
+let g:ale_fixers.elm = ['format']
+let g:ale_fixers.elixir = ['mix_format', 'remove_trailing_lines', 'trim_whitespace']
 
 "let g:ale_elixir_elixir_ls_release = '/Users/tspruit/elixir-ls/rel'
-"let g:ale_sign_column_always = 1
-"let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
-"let g:ale_sign_error = '✗'
-"let g:ale_sign_warning = '⚠'
-"let g:ale_fix_on_save = 1
+let g:ale_sign_column_always = 1
+let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
+let g:ale_sign_error = '✗'
+let g:ale_sign_warning = '⚠'
+let g:ale_fix_on_save = 1
 
 "let g:ale_lint_on_text_changed = 'never'
 "let g:ale_lint_on_enter = 0
@@ -329,30 +339,48 @@ colorscheme papercolor
 
 " Settings for Elixir LS / COC
 "=================================
-let g:coc_global_extensions = ['coc-snippets', 'coc-prettier', 'coc-pairs', 'coc-json', 'coc-eslint', 'coc-bookmark', 'coc-tsserver', 'coc-markdownlint', 'coc-html', 'coc-elixir', 'coc-actions']
+let g:coc_global_extensions = ['coc-snippets', 'coc-prettier', 'coc-pairs', 'coc-json', 'coc-eslint',  'coc-tsserver', 'coc-markdownlint', 'coc-html', 'coc-elixir', 'coc-actions']
 
-" coc-bookmark
-nmap mm <Plug>(coc-bookmark-toggle)
-nmap `m <Plug>(coc-bookmark-next)
-nmap `n <Plug>(coc-bookmark-prev)
 
+" Use tab for trigger completion with characters ahead and navigate.
+" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+" other plugin before putting this into your config.
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<TAB>" :
       \ coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
-
 function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
+" Use <c-space> to trigger completion.
 if has('nvim')
   inoremap <silent><expr> <c-space> coc#refresh()
 else
   inoremap <silent><expr> <c-@> coc#refresh()
 endif
+
+
+" Use <C-l> for trigger snippet expand.
+imap <C-l> <Plug>(coc-snippets-expand)
+
+" Use <C-j> for select text for visual placeholder of snippet.
+vmap <C-j> <Plug>(coc-snippets-select)
+
+" Use <C-j> for jump to next placeholder, it's default of coc.nvim
+let g:coc_snippet_next = '<c-j>'
+
+" Use <C-k> for jump to previous placeholder, it's default of coc.nvim
+let g:coc_snippet_prev = '<c-k>'
+
+" Use <C-j> for both expand and jump (make expand higher priority.)
+imap <C-j> <Plug>(coc-snippets-expand-jump)
+
+" Use <leader>x for convert visual selected code to snippet
+xmap <leader>x  <Plug>(coc-convert-snippet)
 
 "if exists('*complete_info')
   "inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"

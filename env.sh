@@ -39,6 +39,7 @@ fi
 # before path to handle conflict with image magick
 export PATH=/Applications/Araxis\ Merge.app/Contents/Utilities:$PATH
 export PATH=/usr/local/opt/php@5.6/bin:$PATH
+export PATH=/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH
 export ERL_AFLAGS="-kernel shell_history enabled"
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_151.jdk/Contents/Home"
 

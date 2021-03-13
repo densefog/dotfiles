@@ -5,7 +5,7 @@ Plug 'sheerun/vim-polyglot' " multi language pack
 Plug 'tpope/vim-rails' " for rails
 Plug 'tpope/vim-rake' " for rake
 Plug 'scrooloose/nerdtree' " side nav tree
-Plug 'jlanzarotta/bufexplorer' " selecting open files in buffer
+"Plug 'jlanzarotta/bufexplorer' " selecting open files in buffer
 Plug 'scrooloose/nerdcommenter' " commenting lines
 Plug 'mileszs/ack.vim' " search in files
 Plug 'skwp/greplace.vim' " Gsearch and Greplace for text in files

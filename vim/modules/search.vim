@@ -10,6 +10,7 @@ map <leader>F :Ack!<space>
 nnoremap <c-p> :Files<CR>
 nnoremap <leader>r :BTags<CR>
 nnoremap <leader>e :Buffers<CR>
+nnoremap <leader>be :Buffers<CR>
 
 let g:fzf_layout = { 'down': '~40%' }
 let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -g ""'

@@ -1,6 +1,6 @@
 " Settings for Elixir LS / COC
 "=================================
-let g:coc_global_extensions = ['coc-snippets', 'coc-prettier', 'coc-pairs', 'coc-json', 'coc-eslint',  'coc-tsserver', 'coc-markdownlint', 'coc-html', 'coc-elixir', 'coc-actions', 'coc-vimlsp']
+let g:coc_global_extensions = ['coc-snippets', 'coc-prettier', 'coc-pairs', 'coc-json', 'coc-eslint',  'coc-tsserver', 'coc-markdownlint', 'coc-html', 'coc-actions']
 
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by

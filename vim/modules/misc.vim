@@ -33,7 +33,7 @@ set listchars+=tab:\ \
 set termguicolors
 set nobackup
 set nowritebackup
-set cmdheight=2
+set cmdheight=1
 set updatetime=300
 set shortmess+=c
 set signcolumn=yes

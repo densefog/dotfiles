@@ -42,6 +42,20 @@ set signcolumn=yes
 map <F2> :mksession! ~/.vim_session <cr> " Quick write session with F2
 map <F3> :source ~/.vim_session <cr>     " And load session with F3
 
+" Kill these keys I keep fat fingering during input
+imap <S-F1> <Nop>
+imap <S-F2> <Nop>
+imap <S-F3> <Nop>
+imap <S-F4> <Nop>
+imap <S-F5> <Nop>
+imap <S-F6> <Nop>
+imap <S-F7> <Nop>
+imap <S-F8> <Nop>
+imap <S-F9> <Nop>
+imap <S-F10> <Nop>
+imap <S-F11> <Nop>
+imap <S-F12> <Nop>
+
 " Adjust esc
 nnoremap j gj
 nnoremap k gk
@@ -91,4 +105,61 @@ noremap <silent> <c-f> :call smooth_scroll#down(&scroll, 0, 4)<CR>
 
 " Toggle Nerd Tree
 map <leader>n :NERDTreeToggle<CR>
+map <leader>m :NERDTreeFind<CR>
 nnoremap <leader>d :Dash<CR>
+
+" Charta documentation
+let g:charta_api_token="SFMyNTY.g2gDdAAAAAFkAAd1c2VyX2lkYS1uBgBIyrs8eQFiAAFRgA.4v2QdMWYs1vhs_69WXpWmgVhM_Znp5mLGNv3PBIU4_I"
+
+" Cheat Sheet
+" Vim command used to open new buffer
+"let g:CheatSheetReaderCmd='new"'
+
+"" Cheat sheet file type
+"let g:CheatSheetFt='markdown'
+
+"" Program used to retrieve cheat sheet with its arguments
+"let g:CheatSheetUrlGetter='curl --silent'
+
+"" Flag to add cookie file to the query
+"let g:CheatSheetUrlGetterIdFlag='-b'
+
+"" cheat sheet base url
+"let g:CheatSheetBaseUrl='https://cht.sh'
+
+"" cheat sheet settings do not include style settings neiter comments,
+"" see other options below
+"let g:CheatSheetUrlSettings='q'
+
+"" cheat sheet pager
+"let g:CheatPager='less -R'
+
+"" pygmentize theme used for pager output, see :CheatPager :styles-demo
+"let g:CheatSheetPagerStyle='rrt'
+
+"" Show comments in answers by default
+"" (setting this to 0 means giving ?Q to the server)
+"let g:CheatSheetShowCommentsByDefault=1
+
+"" Stay in origin buffer (set to 0 to keep focus on the cheat sheet buffer)
+"let g:CheatSheetStayInOrigBuf=1
+
+"" cheat sheet buffer name
+"let g:CheatSheetBufferName="_cheat"
+
+"" Default selection in normal mode (line for whole line, word for word under cursor)
+"let g:CheatSheetDefaultSelection="line"
+
+"" Default query mode
+"" 0 => buffer
+"" 1 => replace (do not use or you might loose some lines of code)
+"" 2 => pager
+"" 3 => paste after query
+"" 4 => paste before query
+"let g:CheatSheetDefaultMode=0
+
+"" Path to cheat sheet cookie
+"let g:CheatSheetIdPath=expand('~/.cht.sh/id')
+
+"" Make plugin silent by  setting bellow variable to 1
+"let g:CheatSheetSilent=0

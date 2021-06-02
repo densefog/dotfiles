@@ -50,13 +50,13 @@ ZSH_THEME="pygmalion"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git gitfast colored-man-pages colorize bower brew bundler common-aliases osx rails wd sublime tmuxinator mix mix-fast)
+plugins=(git gitfast colored-man-pages colorize bower brew bundler common-aliases macos rails wd sublime tmuxinator mix mix-fast)
 #plugins=(git gitfast colored-man colorize bower brew bundler common-aliases osx rails wd zsh-syntax-highlighting sublime tmuxinator mix mix-fast virtualenv virtualenvwrapper)
 
 # User configuration
 
 #export PATH="$PATH:/Users/tspruit/.rvm/gems/ruby-2.2.1/bin:/Users/tspruit/.rvm/gems/ruby-2.2.1@global/bin:/Users/tspruit/.rvm/rubies/ruby-2.2.1/bin:.bin:/usr/local/Cellar/pyenv-virtualenv/20160202/shims:/usr/local/Cellar/pyenv/20160310/libexec:/Users/tspruit/.pyenv/shims:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/tspruit/.rvm/bin:/Users/tspruit/bin:/usr/local/sbin"
-export PATH="$PATH:/Users/tspruit/.rvm/gems/ruby-2.2.1/bin:/Users/tspruit/.rvm/gems/ruby-2.2.1@global/bin:/Users/tspruit/.rvm/rubies/ruby-2.2.1/bin:.bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/tspruit/.rvm/bin:/Users/tspruit/bin:/usr/local/sbin"
+export PATH="$PATH:.bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/tspruit/bin:/usr/local/sbin"
 # export MANPATH="/usr/local/man:$MANPATH"
 #export NVM_AUTOLOAD=1
 #export NVM_LAZY=1
@@ -91,9 +91,6 @@ source $ZSH/oh-my-zsh.sh
 # Allow noglobbing of commands
 unsetopt nomatch
 
-# Add env.sh
-. ~/env.sh
-
 fpath=(/usr/local/share/zsh-completions $fpath)
 
 # Node Version Manager
@@ -109,9 +106,6 @@ export NVM_DIR="$HOME/.nvm"
 #export PATH="/usr/local/opt/node@10/bin:$PATH"
 #export PATH="/usr/local/opt/node@6/bin:$PATH"
 
-. $HOME/.asdf/asdf.sh
-#. $HOME/.asdf/completions/asdf.bash
-
 # For compilers to find zlib you may need to set:
 export LDFLAGS="${LDFLAGS} -L/usr/local/opt/zlib/lib"
 export CPPFLAGS="${CPPFLAGS} -I/usr/local/opt/zlib/include"
@@ -121,3 +115,19 @@ export PKG_CONFIG_PATH="${PKG_CONFIG_PATH} /usr/local/opt/zlib/lib/pkgconfig"
 #export PATH="/usr/local/opt/mysql-client@5.7/bin:$PATH"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+#. /opt/homebrew/opt/asdf/libexec/asdf.sh
+
+#. $HOME/.asdf/asdf.sh
+#. $HOME/.asdf/completions/asdf.bash
+
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+export CFLAGS="-O2 -g -fno-stack-check"
+export KERL_CONFIGURE_OPTIONS="--disable-hipe --with-ssl=$(brew --prefix openssl@1.1) --with-wx-config=$(brew --prefix wxwidgets)/bin/wx-config --with-odbc=$(brew --prefix unixodbc)"
+export CPPFLAGS="-I$(brew --prefix unixodbc)/include"
+export LDFLAGS="-L$(brew --prefix unixodbc)/lib"
+export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
+
+# Add env.sh
+. ~/env.sh

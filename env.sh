@@ -38,12 +38,12 @@ fi
 
 # before path to handle conflict with image magick
 export PATH=/Applications/Araxis\ Merge.app/Contents/Utilities:$PATH
-export PATH=/usr/local/opt/php@5.6/bin:$PATH
+#export PATH=/usr/local/opt/php@5.6/bin:$PATH
 export PATH=/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH
 export ERL_AFLAGS="-kernel shell_history enabled"
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_151.jdk/Contents/Home"
 
-#source /usr/local/opt/asdf/asdf.sh
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
 
 alias zshconfig="subl ~/.zshrc"
 alias envconfig="subl ~/env.sh"
@@ -53,21 +53,27 @@ alias x="exit"
 alias cddate='cd $(date '+%Y-%m-%d')'
 alias mkdate='mkdir $(date '+%Y-%m-%d');cddate'
 alias mtf='mix test --failed'
-alias ltf='MIX_ENV=test mix list_test_failures'
-alias pongweb='cd /Users/tspruit/Desktop/Ponglabs/PongWebsite;nvm use 12;git wipeout;git pull;npm install;npm run graphql;npm start'
+#alias pongweb='cd /Users/tspruit/Desktop/Ponglabs/PongWebsite;git wipeout;git pull;nvm use 16.13;npm install -y;npm run graphql;npm start'
+alias pongweb='cd /Users/tspruit/Desktop/Ponglabs/PongWebsite && git wipeout && git pull && nvm use 16.13 && npm install && npm run graphql && npm rebuild node-sass && env PUBLIC_URL="" npm run build'
 alias pw='pongweb'
 alias ms='iex -S mix phx.server'
 alias mc='mix compile'
 alias mcc='mix clean;mix compile'
-alias mt='mix test;afplay /System/Library/Sounds/Glass.aiff'
+alias mcs='touch lib/ponglabs_broker_web/schema.ex;mix compile'
+alias mt='mix test --exclude opensearch;afplay /System/Library/Sounds/Glass.aiff'
 alias mem='mix ecto.migrate'
 alias mer='mix ecto.rollback'
+alias ltf='mix test.list_failures'
+alias mltf='mix test.list_failures'
+alias gpo='git pull origin $(git rev-parse --abbrev-ref HEAD)'
 #alias lj='cd /Users/tspruit/Desktop/CI/criterion/ponglabs_broker;rm -rf .user_monitor_storage/;mix run lib/one_import/load_jobs.exs'
 #alias umv='cd /Users/tspruit/Desktop/CI/criterion/ponglabs_broker;mix run lib/one_import/user_monitor_validation.exs'
 
 # Cheat variables
 export CHEAT_COLORS=true
 export CHEAT_COLORSCHEME=dark
+
+ulimit -n 1024
 
 #alias mkdate="mkdir $(date '+%Y-%m-%d');cd $(date '+%Y-%m-%d')"
 #. $HOME/.asdf/asdf.sh

@@ -25,14 +25,17 @@ Plug 'janko-m/vim-test' " Shortcuts for testing
 
 Plug 'dense-analysis/ale' " syntax checking
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-"Plug 'neoclide/coc.nvim', { 'do': 'yarn install --frozen-lockfile' }
+
+Plug 'lewis6991/gitsigns.nvim'
 
 "Plug 'aos/tslime.vim' " Not the original
-"Plug 'jgdavey/tslime.vim' " Not the original
+"Plug 'jgdavey/tslime.vim'
 "Plug 'christoomey/vim-tmux-runner'
 "Plug 'kassio/neoterm'
 "Plug 'benmills/vimux'
 Plug 'esamattis/slimux'
+"Plug 'preservim/vimux'
+"Plug 'kovidgoyal/kitty'
 
 Plug 'terryma/vim-smooth-scroll' " Smooth scrolling
 Plug 'tpope/vim-abolish' " convert string cases
@@ -61,6 +64,8 @@ Plug 'ludovicchabant/vim-gutentags'
 "Snippets used through coc-snippets
 Plug 'honza/vim-snippets'
 "
+" Plug 'dbeniamine/cheat.sh-vim'
+"
 " Completions
 "Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 "let g:deoplete#enable_at_startup = 1
@@ -82,5 +87,8 @@ Plug 'honza/vim-snippets'
 "Plug 'vim-airline/vim-airline-themes'
 "Plug 'joonty/vdebug' " Multiple language debugger
 "Plug 'wincent/terminus' " better terminal integration
+
+" Charta documentation
+"Plug 'ChartaDev/charta.vim'
 
 call plug#end()

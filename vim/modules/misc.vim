@@ -92,3 +92,6 @@ noremap <silent> <c-f> :call smooth_scroll#down(&scroll, 0, 4)<CR>
 " Toggle Nerd Tree
 map <leader>n :NERDTreeToggle<CR>
 nnoremap <leader>d :Dash<CR>
+
+" Charta documentation
+let g:charta_api_token="SFMyNTY.g2gDdAAAAAFkAAd1c2VyX2lkYS1uBgBIyrs8eQFiAAFRgA.4v2QdMWYs1vhs_69WXpWmgVhM_Znp5mLGNv3PBIU4_I"

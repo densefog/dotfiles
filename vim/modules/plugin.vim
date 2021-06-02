@@ -83,4 +83,7 @@ Plug 'honza/vim-snippets'
 "Plug 'joonty/vdebug' " Multiple language debugger
 "Plug 'wincent/terminus' " better terminal integration
 
+" Charta documentation
+"Plug 'ChartaDev/charta.vim'
+
 call plug#end()

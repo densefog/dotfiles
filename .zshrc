@@ -109,9 +109,6 @@ export NVM_DIR="$HOME/.nvm"
 #export PATH="/usr/local/opt/node@10/bin:$PATH"
 #export PATH="/usr/local/opt/node@6/bin:$PATH"
 
-. $HOME/.asdf/asdf.sh
-#. $HOME/.asdf/completions/asdf.bash
-
 # For compilers to find zlib you may need to set:
 export LDFLAGS="${LDFLAGS} -L/usr/local/opt/zlib/lib"
 export CPPFLAGS="${CPPFLAGS} -I/usr/local/opt/zlib/include"
@@ -121,3 +118,6 @@ export PKG_CONFIG_PATH="${PKG_CONFIG_PATH} /usr/local/opt/zlib/lib/pkgconfig"
 #export PATH="/usr/local/opt/mysql-client@5.7/bin:$PATH"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+. $HOME/.asdf/asdf.sh
+. $HOME/.asdf/completions/asdf.bash

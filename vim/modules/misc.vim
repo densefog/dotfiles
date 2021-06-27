@@ -42,6 +42,20 @@ set signcolumn=yes
 map <F2> :mksession! ~/.vim_session <cr> " Quick write session with F2
 map <F3> :source ~/.vim_session <cr>     " And load session with F3
 
+" Kill these keys I keep fat fingering during input
+imap <S-F1> <Nop>
+imap <S-F2> <Nop>
+imap <S-F3> <Nop>
+imap <S-F4> <Nop>
+imap <S-F5> <Nop>
+imap <S-F6> <Nop>
+imap <S-F7> <Nop>
+imap <S-F8> <Nop>
+imap <S-F9> <Nop>
+imap <S-F10> <Nop>
+imap <S-F11> <Nop>
+imap <S-F12> <Nop>
+
 " Adjust esc
 nnoremap j gj
 nnoremap k gk

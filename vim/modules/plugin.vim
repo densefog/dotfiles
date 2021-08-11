@@ -28,11 +28,13 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "Plug 'neoclide/coc.nvim', { 'do': 'yarn install --frozen-lockfile' }
 
 "Plug 'aos/tslime.vim' " Not the original
-"Plug 'jgdavey/tslime.vim' " Not the original
+"Plug 'jgdavey/tslime.vim'
 "Plug 'christoomey/vim-tmux-runner'
 "Plug 'kassio/neoterm'
 "Plug 'benmills/vimux'
 Plug 'esamattis/slimux'
+"Plug 'preservim/vimux'
+"Plug 'kovidgoyal/kitty'
 
 Plug 'terryma/vim-smooth-scroll' " Smooth scrolling
 Plug 'tpope/vim-abolish' " convert string cases

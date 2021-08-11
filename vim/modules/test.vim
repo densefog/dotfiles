@@ -1,5 +1,6 @@
 " Vim-Test options
 let test#strategy = "slimux"
+
 "let g:neoterm_default_mod = "vertical"
 "let g:neoterm_autoscroll = "1"
 "let test#strategy = "neovim"

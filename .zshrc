@@ -50,7 +50,7 @@ ZSH_THEME="pygmalion"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git gitfast colored-man-pages colorize bower brew bundler common-aliases osx rails wd sublime tmuxinator mix mix-fast)
+plugins=(git gitfast colored-man-pages colorize bower brew bundler common-aliases macos rails wd sublime tmuxinator mix mix-fast)
 #plugins=(git gitfast colored-man colorize bower brew bundler common-aliases osx rails wd zsh-syntax-highlighting sublime tmuxinator mix mix-fast virtualenv virtualenvwrapper)
 
 # User configuration

@@ -38,12 +38,12 @@ fi
 
 # before path to handle conflict with image magick
 export PATH=/Applications/Araxis\ Merge.app/Contents/Utilities:$PATH
-export PATH=/usr/local/opt/php@5.6/bin:$PATH
+#export PATH=/usr/local/opt/php@5.6/bin:$PATH
 export PATH=/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH
 export ERL_AFLAGS="-kernel shell_history enabled"
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_151.jdk/Contents/Home"
 
-#source /usr/local/opt/asdf/asdf.sh
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
 
 alias zshconfig="subl ~/.zshrc"
 alias envconfig="subl ~/env.sh"
@@ -53,13 +53,14 @@ alias x="exit"
 alias cddate='cd $(date '+%Y-%m-%d')'
 alias mkdate='mkdir $(date '+%Y-%m-%d');cddate'
 alias mtf='mix test --failed'
-alias pongweb='cd /Users/tspruit/Desktop/Ponglabs/PongWebsite;git wipeout;git pull;nvm use 12.22.1;npm install -y;npm run graphql;npm start'
+#alias pongweb='cd /Users/tspruit/Desktop/Ponglabs/PongWebsite;git wipeout;git pull;nvm use 16.13;npm install -y;npm run graphql;npm start'
+alias pongweb='cd /Users/tspruit/Desktop/Ponglabs/PongWebsite && git wipeout && git pull && nvm use 16.13 && npm install && npm run graphql && npm rebuild node-sass && env PUBLIC_URL="" npm run build'
 alias pw='pongweb'
 alias ms='iex -S mix phx.server'
 alias mc='mix compile'
 alias mcc='mix clean;mix compile'
 alias mcs='touch lib/ponglabs_broker_web/schema.ex;mix compile'
-alias mt='mix test;afplay /System/Library/Sounds/Glass.aiff'
+alias mt='mix test --exclude opensearch;afplay /System/Library/Sounds/Glass.aiff'
 alias mem='mix ecto.migrate'
 alias mer='mix ecto.rollback'
 alias ltf='mix test.list_failures'

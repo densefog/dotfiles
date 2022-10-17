@@ -11,7 +11,7 @@
 let g:ale_linters = {}
 let g:ale_linters.scss = ['stylelint']
 let g:ale_linters.css = ['stylelint']
-let g:ale_linters.elixir = ['elixir-ls', 'credo']
+"let g:ale_linters.elixir = ['elixir-ls', 'credo']
 
 let g:ale_fixers = {'*': ['remove_trailing_lines', 'trim_whitespace']}
 let g:ale_fixers.javascript = ['eslint', 'remove_trailing_lines', 'trim_whitespace']

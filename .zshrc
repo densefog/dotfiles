@@ -56,7 +56,7 @@ plugins=(git gitfast colored-man-pages colorize bower brew bundler common-aliase
 # User configuration
 
 #export PATH="$PATH:/Users/tspruit/.rvm/gems/ruby-2.2.1/bin:/Users/tspruit/.rvm/gems/ruby-2.2.1@global/bin:/Users/tspruit/.rvm/rubies/ruby-2.2.1/bin:.bin:/usr/local/Cellar/pyenv-virtualenv/20160202/shims:/usr/local/Cellar/pyenv/20160310/libexec:/Users/tspruit/.pyenv/shims:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/tspruit/.rvm/bin:/Users/tspruit/bin:/usr/local/sbin"
-export PATH="$PATH:/Users/tspruit/.rvm/gems/ruby-2.2.1/bin:/Users/tspruit/.rvm/gems/ruby-2.2.1@global/bin:/Users/tspruit/.rvm/rubies/ruby-2.2.1/bin:.bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/tspruit/.rvm/bin:/Users/tspruit/bin:/usr/local/sbin"
+export PATH="$PATH:.bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/tspruit/bin:/usr/local/sbin"
 # export MANPATH="/usr/local/man:$MANPATH"
 #export NVM_AUTOLOAD=1
 #export NVM_LAZY=1
@@ -91,9 +91,6 @@ source $ZSH/oh-my-zsh.sh
 # Allow noglobbing of commands
 unsetopt nomatch
 
-# Add env.sh
-. ~/env.sh
-
 fpath=(/usr/local/share/zsh-completions $fpath)
 
 # Node Version Manager
@@ -119,5 +116,18 @@ export PKG_CONFIG_PATH="${PKG_CONFIG_PATH} /usr/local/opt/zlib/lib/pkgconfig"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-. $HOME/.asdf/asdf.sh
-. $HOME/.asdf/completions/asdf.bash
+#. /opt/homebrew/opt/asdf/libexec/asdf.sh
+
+#. $HOME/.asdf/asdf.sh
+#. $HOME/.asdf/completions/asdf.bash
+
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+export CFLAGS="-O2 -g -fno-stack-check"
+export KERL_CONFIGURE_OPTIONS="--disable-hipe --with-ssl=$(brew --prefix openssl@1.1) --with-wx-config=$(brew --prefix wxwidgets)/bin/wx-config --with-odbc=$(brew --prefix unixodbc)"
+export CPPFLAGS="-I$(brew --prefix unixodbc)/include"
+export LDFLAGS="-L$(brew --prefix unixodbc)/lib"
+export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
+
+# Add env.sh
+. ~/env.sh

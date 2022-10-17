@@ -105,6 +105,7 @@ noremap <silent> <c-f> :call smooth_scroll#down(&scroll, 0, 4)<CR>
 
 " Toggle Nerd Tree
 map <leader>n :NERDTreeToggle<CR>
+map <leader>m :NERDTreeFind<CR>
 nnoremap <leader>d :Dash<CR>
 
 " Charta documentation

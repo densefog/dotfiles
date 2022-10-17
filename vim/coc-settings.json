@@ -19,6 +19,7 @@
   },
   "codeLens.enable": true,
   "elixir.pathToElixirLS": "~/elixir-ls/rel/language_server.sh",
+  "elixirLS.suggestSpecs": false,
   "languageserverx": {
     "elixirLS": {
       "command": "~/elixir-ls/release/language_server.sh",

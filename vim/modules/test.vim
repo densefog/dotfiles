@@ -19,7 +19,8 @@ nmap <silent> <leader>l :TestLast<CR>
 nmap <silent> <leader>v :TestVisit<CR>
 "nmap <silent> <leader>r :Tmux rubocop<CR>
 "nmap <silent> <leader>h :Tmux mix run lib/one_import/import_floors_new.exs<CR>
-nmap <silent> <leader>h :Tmux mtf<CR>
+nmap <silent> <leader>h :SlimuxShellRun mtf<CR>
+nmap <silent> <leader>c :SlimuxShellRun mc<CR>
 
 let g:test#preserve_screen = 0
 

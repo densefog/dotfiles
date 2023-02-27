@@ -21,11 +21,16 @@ let g:ale_fixers.elm = ['format']
 let g:ale_fixers.elixir = ['mix_format', 'remove_trailing_lines', 'trim_whitespace']
 
 "let g:ale_elixir_elixir_ls_release = '/Users/tspruit/elixir-ls/rel'
+
+let g:ale_sign_error = '❌'
+let g:ale_sign_warning = '⚠️'
+
 let g:ale_sign_column_always = 1
-let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
-let g:ale_sign_error = '✗'
-let g:ale_sign_warning = '⚠'
+"let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
+"let g:ale_sign_error = '✗'
+"let g:ale_sign_warning = '⚠'
 let g:ale_fix_on_save = 1
+
 
 "let g:ale_lint_on_text_changed = 'never'
 "let g:ale_lint_on_enter = 0
@@ -48,3 +53,21 @@ let g:ale_fix_on_save = 1
     "w
     "let g:ale_enabled = 1
 "endfunc
+function! LinterStatus() abort
+  let l:counts = ale#statusline#Count(bufnr(''))
+
+  let l:all_errors = l:counts.error + l:counts.style_error
+  let l:all_non_errors = l:counts.total - l:all_errors
+
+  return l:counts.total == 0 ? '? all good ?' : printf(
+        \   '?? %dW %dE',
+        \   all_non_errors,
+        \   all_errors
+        \)
+endfunction
+
+set statusline=
+set statusline+=%m
+set statusline+=\ %f
+set statusline+=%=
+set statusline+=\ %{LinterStatus()}

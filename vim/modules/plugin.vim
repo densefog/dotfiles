@@ -26,6 +26,8 @@ Plug 'janko-m/vim-test' " Shortcuts for testing
 Plug 'dense-analysis/ale' " syntax checking
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
+Plug 'lewis6991/gitsigns.nvim'
+
 "Plug 'aos/tslime.vim' " Not the original
 "Plug 'jgdavey/tslime.vim'
 "Plug 'christoomey/vim-tmux-runner'
@@ -61,6 +63,8 @@ Plug 'ludovicchabant/vim-gutentags'
 "
 "Snippets used through coc-snippets
 Plug 'honza/vim-snippets'
+"
+" Plug 'dbeniamine/cheat.sh-vim'
 "
 " Completions
 "Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }

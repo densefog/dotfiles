@@ -14,7 +14,7 @@
         "python"
       ],
       "currentFunctionSymbolAutoUpdate": true,
-      "messageLevel": "error"
+      "messageLevel": "debug"
     }
   },
   "codeLens.enable": true,

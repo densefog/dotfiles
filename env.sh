@@ -73,6 +73,8 @@ alias gpo='git pull origin $(git rev-parse --abbrev-ref HEAD)'
 export CHEAT_COLORS=true
 export CHEAT_COLORSCHEME=dark
 
+ulimit -n 1024
+
 #alias mkdate="mkdir $(date '+%Y-%m-%d');cd $(date '+%Y-%m-%d')"
 #. $HOME/.asdf/asdf.sh
 #export PATH="/usr/local/opt/ncurses/bin:$PATH"

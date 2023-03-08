@@ -1,2 +1,3 @@
 vim/bundle
 vim/plugged
+nvim_lua/lazy_lock.json

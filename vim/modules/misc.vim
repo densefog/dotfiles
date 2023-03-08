@@ -37,6 +37,7 @@ set cmdheight=1
 set updatetime=300
 set shortmess+=c
 set signcolumn=yes
+set mouse=
 
 " Save and Reload sessions
 map <F2> :mksession! ~/.vim_session <cr> " Quick write session with F2

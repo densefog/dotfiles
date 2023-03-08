@@ -50,8 +50,8 @@ ZSH_THEME="pygmalion"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git gitfast colored-man-pages colorize bower brew bundler common-aliases macos rails wd sublime tmuxinator mix mix-fast)
-#plugins=(git gitfast colored-man colorize bower brew bundler common-aliases osx rails wd zsh-syntax-highlighting sublime tmuxinator mix mix-fast virtualenv virtualenvwrapper)
+plugins=(git gitfast colored-man-pages colorize bower brew bundler macos rails wd sublime tmuxinator mix mix-fast)
+# plugins=(git gitfast colored-man-pages colorize bower brew bundler common-aliases macos rails wd sublime tmuxinator mix mix-fast)
 
 # User configuration
 
@@ -128,6 +128,8 @@ export KERL_CONFIGURE_OPTIONS="--disable-hipe --with-ssl=$(brew --prefix openssl
 export CPPFLAGS="-I$(brew --prefix unixodbc)/include"
 export LDFLAGS="-L$(brew --prefix unixodbc)/lib"
 export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
+
+export NEO4J_ACCEPT_LICENSE_AGREEMENT=yes
 
 # Add env.sh
 . ~/env.sh

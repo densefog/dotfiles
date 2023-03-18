@@ -55,6 +55,7 @@ alias mkdate='mkdir $(date '+%Y-%m-%d');cddate'
 alias mtf='mix test --failed'
 #alias pongweb='cd /Users/tspruit/Desktop/Ponglabs/PongWebsite;git wipeout;git pull;nvm use 16.13;npm install -y;npm run graphql;npm start'
 alias pongweb='cd /Users/tspruit/Desktop/Ponglabs/PongWebsite && git wipeout && git pull && nvm use 16.13 && npm install && npm run graphql && npm rebuild node-sass && env PUBLIC_URL="" npm run build'
+alias ltf='MIX_ENV=test mix list_test_failures'
 alias pw='pongweb'
 alias ms='iex -S mix phx.server'
 alias mc='mix compile'
@@ -72,6 +73,7 @@ alias gpo='git pull origin $(git rev-parse --abbrev-ref HEAD)'
 # Cheat variables
 export CHEAT_COLORS=true
 export CHEAT_COLORSCHEME=dark
+export DYLD_INSERT_LIBRARIES=
 
 ulimit -n 1024
 

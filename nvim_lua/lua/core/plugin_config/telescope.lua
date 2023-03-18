@@ -5,8 +5,6 @@ vim.keymap.set('n', '<leader><Space>', builtin.oldfiles, {})
 vim.keymap.set('n', '<leader>f', builtin.live_grep, {})
 vim.keymap.set('n', '<leader>h', builtin.help_tags, {})
 
-
-
 -- You dont need to set any of these options. These are the default ones. Only
 -- the loading is important
 --require('telescope').setup {

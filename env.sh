@@ -43,7 +43,7 @@ export PATH=/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH
 export ERL_AFLAGS="-kernel shell_history enabled"
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_151.jdk/Contents/Home"
 
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
+# . /opt/homebrew/opt/asdf/libexec/asdf.sh
 
 alias zshconfig="subl ~/.zshrc"
 alias envconfig="subl ~/env.sh"

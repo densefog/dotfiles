@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/tspruit/.oh-my-zsh
+export ZSH=~/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -55,8 +55,8 @@ plugins=(git gitfast colored-man-pages colorize bower brew bundler macos rails w
 
 # User configuration
 
-#export PATH="$PATH:/Users/tspruit/.rvm/gems/ruby-2.2.1/bin:/Users/tspruit/.rvm/gems/ruby-2.2.1@global/bin:/Users/tspruit/.rvm/rubies/ruby-2.2.1/bin:.bin:/usr/local/Cellar/pyenv-virtualenv/20160202/shims:/usr/local/Cellar/pyenv/20160310/libexec:/Users/tspruit/.pyenv/shims:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/tspruit/.rvm/bin:/Users/tspruit/bin:/usr/local/sbin"
-export PATH="$PATH:.bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/tspruit/bin:/usr/local/sbin"
+export PATH="$PATH:.bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:~/bin:/usr/local/sbin"
+
 # export MANPATH="/usr/local/man:$MANPATH"
 #export NVM_AUTOLOAD=1
 #export NVM_LAZY=1

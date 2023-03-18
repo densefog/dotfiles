@@ -16,15 +16,14 @@ vim.opt.shiftwidth = 2
 vim.opt.shiftround = true
 vim.opt.expandtab = true
 
-vim.opt.clipboard = 'unnamedplus'     -- yanks to osx clipboard
-vim.opt.history = 1000 -- number of history items to remember
-
+vim.opt.clipboard = 'unnamedplus' -- yanks to osx clipboard
+vim.opt.history = 1000            -- number of history items to remember
 
 vim.keymap.set('n', '<leader>n', ':NvimTreeToggle<CR>')
 
 -- Save and Reload sessions
 vim.keymap.set('', '<F2>', ':mksession! ~/.vim_session <cr>') -- Quick write session with F2
-vim.keymap.set('', '<F3>', ':source ~/.vim_session <cr>') -- And load session with F3
+vim.keymap.set('', '<F3>', ':source ~/.vim_session <cr>')     -- And load session with F3
 
 -- Kill these keys I keep fat fingering during input
 vim.keymap.set('i', '<S-F1>', '<Nop>')
@@ -51,7 +50,7 @@ vim.keymap.set('v', '<F1>', '<ESC>', { noremap = true })
 
 -- window zoom
 vim.keymap.set('n', '<c-w>[', ':wincmd _<cr><bar>:wincmd |<cr>', { noremap = true }) -- zoom in the active window
-vim.keymap.set('n', '<c-w>]', ':wincmd =<cr>', { noremap = true }) -- zoom out the currrent window
+vim.keymap.set('n', '<c-w>]', ':wincmd =<cr>', { noremap = true })                   -- zoom out the currrent window
 
 -- Map arrow keys to window resize
 vim.keymap.set('n', '<left>', '<c-w><')
@@ -64,4 +63,3 @@ vim.keymap.set('n', '<CR>', ':noh<CR><CR>', { noremap = true })
 
 -- Dash
 vim.keymap.set('n', '<leader>d', ':Dash<CR>', { noremap = true })
-

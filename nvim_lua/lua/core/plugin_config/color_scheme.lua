@@ -1,10 +1,10 @@
---vim.o.termguicolors = true
---vim.cmd [[ colorscheme tokyonight-night ]]
+vim.o.termguicolors = true
+vim.cmd [[ colorscheme tokyonight-night ]]
 
-vim.o.background = 'dark'
+--vim.o.background = 'dark'
 
 -- local c = require('vscode.colors').get_colors()
-require('vscode').setup({})
+--require('vscode').setup({})
 --require('vscode').setup({
 ---- Enable transparent background
 --transparent = true,

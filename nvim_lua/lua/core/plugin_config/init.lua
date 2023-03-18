@@ -1,3 +1,5 @@
+require("core.plugin_config.neodev")
+require("core.plugin_config.which-key")
 require("core.plugin_config.color_scheme")
 require("core.plugin_config.greplace")
 require("core.plugin_config.lualine")

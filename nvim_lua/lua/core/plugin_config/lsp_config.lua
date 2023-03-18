@@ -14,7 +14,6 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, opts)
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(_, bufnr)
-
   -- See `:help vim.lsp.*` for documentation on any of the below functions
   local bufopts = { noremap = true, silent = true, buffer = bufnr }
 
@@ -44,7 +43,7 @@ require('lspconfig').lua_ls.setup {
 }
 
 require('lspconfig').elixirls.setup {
-  cmd = { "/Users/tspruit/elixir-ls/rel/language_server.sh" },
+  cmd = { vim.env.HOME .. "/elixir-ls/rel/language_server.sh" },
   on_attach = on_attach,
   flags = lsp_flags,
 }
@@ -56,7 +55,7 @@ require('lspconfig').tsserver.setup {
 
 -- linting
 require('lint').linters_by_ft = {
-  elixir = {'credo',}
+  elixir = { 'credo', }
 }
 
 vim.api.nvim_create_autocmd({ "BufWritePost" }, {
@@ -64,4 +63,3 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
     require("lint").try_lint()
   end,
 })
-

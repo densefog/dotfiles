@@ -14,8 +14,8 @@ vim.opt.rtp:prepend(lazypath)
 
 
 require("lazy").setup({
-  --"folke/tokyonight.nvim",
-  "Mofiqul/vscode.nvim",
+  "folke/tokyonight.nvim",
+  --"Mofiqul/vscode.nvim",
   {
     'nvim-tree/nvim-tree.lua',
     dependencies = {
@@ -24,20 +24,20 @@ require("lazy").setup({
     tag = 'nightly'                  -- optional, updated every week. (see issue #1193)
   },
   "folke/which-key.nvim",
-  { "folke/neoconf.nvim",                       cmd = "Neoconf" },
+  --{ "folke/neoconf.nvim",                       cmd = "Neoconf" },
   "folke/neodev.nvim",
-  "nvim-lualine/lualine.nvim",                                                                     -- bottom line
-  "nvim-treesitter/nvim-treesitter",                                                               --
+  "nvim-lualine/lualine.nvim",                                                                               -- bottom line
+  "nvim-treesitter/nvim-treesitter",                                                                         --
   "rrethy/nvim-treesitter-endwise",
-  { 'nvim-telescope/telescope.nvim',            tag = '0.1.1',  dependencies = { 'nvim-lua/plenary.nvim' } }, -- find / grep
+  { 'nvim-telescope/telescope.nvim',            tag = '0.1.1', dependencies = { 'nvim-lua/plenary.nvim' } }, -- find / grep
   { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
-  "rizzatti/dash.vim",                                                                             -- dash documentation
-  "kburdett/vim-nuuid",                                                                            -- generate a UUID
-  "scrooloose/nerdcommenter",                                                                      -- comment out code
-  "skwp/greplace.vim",                                                                             -- Gsearch and replace for text in files
-  "christoomey/vim-tmux-navigator",                                                                -- tmux / vim navigation
-  "janko-m/vim-test",                                                                              -- shortcuts for testing
-  "esamattis/slimux",                                                                              -- tmux testing integration
+  "rizzatti/dash.vim",                                                                                       -- dash documentation
+  "kburdett/vim-nuuid",                                                                                      -- generate a UUID
+  "scrooloose/nerdcommenter",                                                                                -- comment out code
+  "skwp/greplace.vim",                                                                                       -- Gsearch and replace for text in files
+  "christoomey/vim-tmux-navigator",                                                                          -- tmux / vim navigation
+  "janko-m/vim-test",                                                                                        -- shortcuts for testing
+  "esamattis/slimux",                                                                                        -- tmux testing integration
   -- lsp integration
   "williamboman/mason.nvim",
   "williamboman/mason-lspconfig.nvim",

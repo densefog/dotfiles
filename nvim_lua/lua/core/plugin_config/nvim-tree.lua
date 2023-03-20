@@ -1,3 +1,4 @@
+-- https://github.com/nvim-tree/nvim-tree.lua
 -- examples for your init.lua
 
 -- disable netrw at the very start of your init.lua (strongly advised)
@@ -26,9 +27,19 @@ require("nvim-tree").setup({
   filters = {
     dotfiles = true,
   },
+  view = {
+    width = 30,
+    mappings = {
+      list = {
+        { key = "s", action = "vsplit" },
+        { key = "h", action = "split" },
+        { key = "<C-s>", action = "system_open" },
+      },
+    },
+  },
 })
 
 vim.keymap.set('n', '<leader>n', ':NvimTreeToggle<CR>')
 vim.keymap.set('n', '<leader>m', ':NvimTreeFindFileToggle<CR>')
-vim.keymap.set('n', '<c-n>', ':NvimTreeToggle<CR>')
-vim.keymap.set('n', '<c-m>', ':NvimTreeFindFileToggle<CR>')
+-- vim.keymap.set('n', '<c-n>', ':NvimTreeToggle<CR>')
+-- vim.keymap.set('n', '<c-m>', ':NvimTreeFindFileToggle<CR>')

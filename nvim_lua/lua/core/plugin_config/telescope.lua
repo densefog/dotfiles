@@ -1,8 +1,11 @@
+-- https://github.com/nvim-telescope/telescope.nvim
+
 local builtin = require('telescope.builtin')
 
 vim.keymap.set('n', '<c-p>', builtin.find_files, {})
 vim.keymap.set('n', '<leader><Space>', builtin.oldfiles, {})
 vim.keymap.set('n', '<leader>f', builtin.live_grep, {})
+vim.keymap.set('n', '<leader>e', builtin.buffers, {})
 vim.keymap.set('n', '<leader>h', builtin.help_tags, {})
 
 -- You dont need to set any of these options. These are the default ones. Only

@@ -68,5 +68,7 @@ require("lazy").setup({
   "hrsh7th/nvim-cmp",
   -- Lua Snip
   "saadparwaiz1/cmp_luasnip",
-  "L3MON4D3/LuaSnip"
+  "L3MON4D3/LuaSnip",
+  "MattesGroeger/vim-bookmarks", -- bookmarks
+  "terryma/vim-multiple-cursors", -- sublime ish functionality
 })

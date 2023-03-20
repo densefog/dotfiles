@@ -1,5 +1,22 @@
-vim.o.termguicolors = true
-vim.cmd [[ colorscheme tokyonight-night ]]
+--vim.o.termguicolors = true
+--vim.cmd [[ colorscheme tokyonight-night ]]
+
+-- https://github.com/catppuccin/nvim
+--colorscheme catppuccin " catppuccin-latte, catppuccin-frappe, catppuccin-macchiato, catppuccin-mocha
+vim.cmd.colorscheme "catppuccin-mocha"
+
+
+--require("catppuccin").setup {
+    --color_overrides = {
+        --all = {
+          --yellow = "#ffffff"
+            ----base = "#ff0000",
+            ----mantle = "#242424",
+            ----crust = "#474747",
+            ----text = "#ffffff",
+        --}
+    --}
+--}
 
 --vim.o.background = 'dark'
 

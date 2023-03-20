@@ -15,6 +15,7 @@
   "nerdcommenter": { "branch": "master", "commit": "d069f7fb562fb9eb6911fe23cda7aca2a387043e" },
   "null-ls.nvim": { "branch": "main", "commit": "456a983ce9843123e51b955f50925077ca7207d5" },
   "nvim-cmp": { "branch": "main", "commit": "777450fd0ae289463a14481673e26246b5e38bf2" },
+  "nvim-lint": { "branch": "master", "commit": "cadebae41e11610ba22a7c95dcf5ebc0f8af8f13" },
   "nvim-lspconfig": { "branch": "master", "commit": "736c39e4bab977f0171c78328415c6402c58e64a" },
   "nvim-tree.lua": { "branch": "master", "commit": "59e65d88db177ad1e6a8cffaafd4738420ad20b6" },
   "nvim-treesitter": { "branch": "master", "commit": "25b656a4b771ee7d440e506280b9ae546d6f7233" },

@@ -58,7 +58,7 @@ require("lazy").setup({
   "neovim/nvim-lspconfig",
   ----"mfussenegger/nvim-dap",
   -- "mfussenegger/nvim-lint",
-  -- "jose-elias-alvarez/null-ls.nvim", -- for formatting
+  "jose-elias-alvarez/null-ls.nvim", -- for formatting
   "lewis6991/gitsigns.nvim", -- git signs
   --"dcampos/nvim-snippy",     -- snippets
   -- Completion

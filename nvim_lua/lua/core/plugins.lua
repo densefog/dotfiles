@@ -67,9 +67,6 @@ require("lazy").setup({
   "hrsh7th/cmp-path",
   "hrsh7th/cmp-cmdline",
   "hrsh7th/nvim-cmp",
-  -- For snippy users.
-  --"dcampos/nvim-snippy",
-  -- "dcampos/cmp-snippy"
   -- Lua Snip
   "saadparwaiz1/cmp_luasnip",
   "L3MON4D3/LuaSnip"

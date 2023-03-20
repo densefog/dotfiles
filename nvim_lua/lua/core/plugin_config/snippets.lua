@@ -56,3 +56,6 @@ cmp.setup {
     { name = 'luasnip' },
   },
 }
+
+-- load snippets
+require("luasnip.loaders.from_snipmate").lazy_load({ paths = { vim.env.HOME .. "/.config/snippets" } })

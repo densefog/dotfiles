@@ -15,7 +15,7 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
   -- "folke/tokyonight.nvim",
-  {"catppuccin/nvim", name = "catppuccin"},
+  { "catppuccin/nvim", name = "catppuccin" },
   {
     'nvim-tree/nvim-tree.lua',
     dependencies = {
@@ -32,20 +32,24 @@ require("lazy").setup({
     build = ":TSUpdate"
   },                                -- highlighting code
   "rrethy/nvim-treesitter-endwise", -- end of function help
-  {
-    {
-      'nvim-telescope/telescope.nvim',
-      tag = '0.1.1',
-      dependencies = { 'nvim-lua/plenary.nvim' }
-    }
-  }, -- find / grep
-  {
-    {
-      "nvim-telescope/telescope-fzf-native.nvim",
-      build = "make"
-    }
-  },
+  "nvim-lua/plenary.nvim",
+  --{
+  --{
+  --"nvim-telescope/telescope.nvim",
+  --tag = "0.1.1",
+  --dependencies = { "nvim-lua/plenary.nvim" }
+  --}
+  --}, -- find / grep
+  --{
+  --{
+  --"nvim-telescope/telescope-fzf-native.nvim",
+  --build = "make"
+  --}
+  --},
   --"kelly-lin/telescope-ag",
+  "mileszs/ack.vim", -- file search
+  { "junegunn/fzf",    build = ":call fzf#install()" },
+  "junegunn/fzf.vim",
   "rizzatti/dash.vim",              -- dash documentation
   "kburdett/vim-nuuid",             -- generate a UUID
   "scrooloose/nerdcommenter",       -- comment out code
@@ -60,7 +64,7 @@ require("lazy").setup({
   ----"mfussenegger/nvim-dap",
   "jose-elias-alvarez/null-ls.nvim", -- for formatting
   -- "mfussenegger/nvim-lint", -- linting
-  "lewis6991/gitsigns.nvim", -- git signs
+  "lewis6991/gitsigns.nvim",         -- git signs
   -- Completion
   "hrsh7th/cmp-nvim-lsp",
   "hrsh7th/cmp-buffer",
@@ -70,6 +74,6 @@ require("lazy").setup({
   -- Lua Snip
   "saadparwaiz1/cmp_luasnip",
   "L3MON4D3/LuaSnip",
-  "MattesGroeger/vim-bookmarks", -- bookmarks
+  "MattesGroeger/vim-bookmarks",  -- bookmarks
   "terryma/vim-multiple-cursors", -- sublime ish functionality
 })

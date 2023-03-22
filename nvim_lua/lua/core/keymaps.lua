@@ -1,5 +1,6 @@
 vim.g.mapleader = ','
 vim.g.maplocalleader = ','
+vim.opt.wrap = false
 vim.opt.backspace = '2'
 vim.opt.showcmd = true
 vim.opt.laststatus = 2
@@ -9,6 +10,7 @@ vim.opt.autoread = true
 vim.opt.mouse = ''
 vim.opt.number = true
 vim.opt.relativenumber = true
+vim.o.ttyfast = true
 
 -- Use spaces for tabs and whatnot
 vim.opt.tabstop = 2

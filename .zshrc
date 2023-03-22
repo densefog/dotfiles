@@ -50,16 +50,11 @@ ZSH_THEME="pygmalion"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git gitfast colored-man-pages colorize bower brew bundler macos rails wd sublime tmuxinator mix mix-fast)
-# plugins=(git gitfast colored-man-pages colorize bower brew bundler common-aliases macos rails wd sublime tmuxinator mix mix-fast)
+plugins=(git gitfast colored-man-pages colorize bower brew bundler macos rails wd sublime tmuxinator mix mix-fast asdf)
 
 # User configuration
 
-export PATH="$PATH:.bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:~/bin:/usr/local/sbin"
-
-# export MANPATH="/usr/local/man:$MANPATH"
-#export NVM_AUTOLOAD=1
-#export NVM_LAZY=1
+export PATH="$PATH:$HOME/bin:.bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:~/bin:/usr/local/sbin"
 
 source $ZSH/oh-my-zsh.sh
 
@@ -115,11 +110,6 @@ export PKG_CONFIG_PATH="${PKG_CONFIG_PATH} /usr/local/opt/zlib/lib/pkgconfig"
 #export PATH="/usr/local/opt/mysql-client@5.7/bin:$PATH"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-#. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-#. $HOME/.asdf/asdf.sh
-#. $HOME/.asdf/completions/asdf.bash
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
 

@@ -14,8 +14,8 @@ vim.opt.rtp:prepend(lazypath)
 
 
 require("lazy").setup({
-  "folke/tokyonight.nvim",
-  --"Mofiqul/vscode.nvim",
+  -- "folke/tokyonight.nvim",
+  {"catppuccin/nvim", name = "catppuccin"},
   {
     'nvim-tree/nvim-tree.lua',
     dependencies = {
@@ -45,6 +45,7 @@ require("lazy").setup({
       build = "make"
     }
   },
+  --"kelly-lin/telescope-ag",
   "rizzatti/dash.vim",              -- dash documentation
   "kburdett/vim-nuuid",             -- generate a UUID
   "scrooloose/nerdcommenter",       -- comment out code

@@ -17,7 +17,7 @@ end
 
 vim.keymap.set('n', '<leader>f', ':Ag<CR>')
 vim.keymap.set('n', '<leader>F', ':Ack!<space>')
-vim.keymap.set('n', '<c-p>', 'Files<CR>')
+vim.keymap.set('n', '<c-p>', ':Files<CR>')
 vim.keymap.set('n', '<leader>e', ':Buffers<CR>')
 
 --let g:fzf_layout = { 'down': '~40%' }
@@ -26,7 +26,7 @@ vim.keymap.set('n', '<leader>e', ':Buffers<CR>')
 
 vim.g.fzf_layout = { down = "~40%" }
 vim.fn.setenv("FZF_DEFAULT_COMMAND", 'ag --hidden --ignore .git -g ""')
-vim.g.fzf_action = { ["ctrl-t"] = "tab split", ["ctrl-h"] = "split", ["ctrl-v"] = "vsplit" }
+vim.g.fzf_action = { ["ctrl-t"] = "tab split",["ctrl-h"] = "split",["ctrl-v"] = "vsplit" }
 
 
 -- https://github.com/nvim-telescope/telescope.nvim

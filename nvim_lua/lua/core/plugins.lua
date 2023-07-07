@@ -31,29 +31,22 @@ require("lazy").setup({
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate"
   },                                -- highlighting code
-  "rrethy/nvim-treesitter-endwise", -- end of function help
-  "nvim-lua/plenary.nvim",
-  --{
-  --{
-  --"nvim-telescope/telescope.nvim",
-  --tag = "0.1.1",
-  --dependencies = { "nvim-lua/plenary.nvim" }
-  --}
-  --}, -- find / grep
-  --{
-  --{
-  --"nvim-telescope/telescope-fzf-native.nvim",
-  --build = "make"
-  --}
-  --},
-  --"kelly-lin/telescope-ag",
-  "mileszs/ack.vim", -- file search
-  { "junegunn/fzf",    build = ":call fzf#install()" },
-  "junegunn/fzf.vim",
+  --"rrethy/nvim-treesitter-endwise", -- end of function help
+  "tpope/vim-endwise",
+  -- telescope
+  {
+    "nvim-telescope/telescope.nvim", 
+    branch = '0.1.x',
+    dependencies = { 'nvim-lua/plenary.nvim' }
+  },
+  { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
+  {'junegunn/fzf', build = "fzf#install()"},
+  { 'junegunn/fzf.vim'},
+  "skwp/greplace.vim",              -- Gsearch and replace for text in files
+
   "rizzatti/dash.vim",              -- dash documentation
   "kburdett/vim-nuuid",             -- generate a UUID
   "scrooloose/nerdcommenter",       -- comment out code
-  "skwp/greplace.vim",              -- Gsearch and replace for text in files
   "christoomey/vim-tmux-navigator", -- tmux / vim navigation
   "janko-m/vim-test",               -- shortcuts for testing
   "esamattis/slimux",               -- tmux testing integration
@@ -61,19 +54,30 @@ require("lazy").setup({
   "williamboman/mason.nvim",
   "williamboman/mason-lspconfig.nvim",
   "neovim/nvim-lspconfig",
+  "mhinz/vim-mix-format", -- elixir formatting
   ----"mfussenegger/nvim-dap",
-  "jose-elias-alvarez/null-ls.nvim", -- for formatting
-  -- "mfussenegger/nvim-lint", -- linting
-  "lewis6991/gitsigns.nvim",         -- git signs
+  -- "jose-elias-alvarez/null-ls.nvim", -- for formatting
+  "mfussenegger/nvim-lint", -- linting
+  --
+  -- git gutter
+  -- "airblade/vim-gitgutter",
+  "lewis6991/gitsigns.nvim",
   -- Completion
   "hrsh7th/cmp-nvim-lsp",
   "hrsh7th/cmp-buffer",
   "hrsh7th/cmp-path",
   "hrsh7th/cmp-cmdline",
   "hrsh7th/nvim-cmp",
+  -- Vsnip
+  --'hrsh7th/cmp-vsnip',
+  --'hrsh7th/vim-vsnip',
   -- Lua Snip
-  "saadparwaiz1/cmp_luasnip",
-  "L3MON4D3/LuaSnip",
+  --"saadparwaiz1/cmp_luasnip",
+  --"L3MON4D3/LuaSnip",
+   "dcampos/nvim-snippy",
+   "dcampos/cmp-snippy",
+  -- end snippets
   "MattesGroeger/vim-bookmarks",  -- bookmarks
-  "terryma/vim-multiple-cursors", -- sublime ish functionality
+  --"terryma/vim-multiple-cursors", -- sublime ish functionality
+  "mg979/vim-visual-multi", -- multiple cursors
 })

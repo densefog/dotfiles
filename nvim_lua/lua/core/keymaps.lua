@@ -1,3 +1,13 @@
+-- global options
+vim.opt.ttyfast = true
+vim.opt.ignorecase = true
+vim.opt.iskeyword:append("-")
+vim.opt.scrolloff = 3
+vim.opt.showmatch = true
+vim.opt.smartcase = true
+vim.opt.updatetime = 300
+vim.opt.swapfile = false
+
 vim.g.mapleader = ','
 vim.g.maplocalleader = ','
 vim.opt.wrap = false
@@ -10,13 +20,13 @@ vim.opt.autoread = true
 vim.opt.mouse = ''
 vim.opt.number = true
 vim.opt.relativenumber = true
-vim.o.ttyfast = true
 
 -- Use spaces for tabs and whatnot
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.shiftround = true
 vim.opt.expandtab = true
+vim.opt.softtabstop = 2
 
 vim.opt.clipboard = 'unnamedplus' -- yanks to osx clipboard
 vim.opt.history = 1000            -- number of history items to remember
@@ -65,3 +75,5 @@ vim.keymap.set('n', '<CR>', ':noh<CR><CR>', { noremap = true })
 
 -- Dash
 vim.keymap.set('n', '<leader>d', ':Dash<CR>', { noremap = true })
+
+

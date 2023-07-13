@@ -8,9 +8,10 @@ local builtin = require('telescope.builtin')
 require('telescope').load_extension('fzf')
 vim.keymap.set('n', '<c-p>', builtin.find_files, {})
 -- vim.keymap.set('n', '<leader>f', builtin.live_grep, {})
-vim.keymap.set('n', '<leader>e', builtin.buffers, {})
+--vim.keymap.set('n', '<leader>e', builtin.buffers, {})
 vim.keymap.set('n', '<leader>h', builtin.help_tags, {})
 -- vim.keymap.set('n', '<leader>F', builtin.grep_string, {})
+vim.keymap.set('n', '<leader>e', function() builtin.buffers({ sort_lastused = true}) end)
 
 
 -- FZF

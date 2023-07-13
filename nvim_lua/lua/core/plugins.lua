@@ -14,8 +14,10 @@ vim.opt.rtp:prepend(lazypath)
 
 
 require("lazy").setup({
-  -- "folke/tokyonight.nvim",
-  { "catppuccin/nvim", name = "catppuccin" },
+  "folke/tokyonight.nvim",
+  -- { "catppuccin/nvim", name = "catppuccin" },
+  -- "tomasiser/vim-code-dark",
+  -- 'Mofiqul/vscode.nvim',
   {
     'nvim-tree/nvim-tree.lua',
     dependencies = {
@@ -30,7 +32,7 @@ require("lazy").setup({
   {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate"
-  },                                -- highlighting code
+  },
   --"rrethy/nvim-treesitter-endwise", -- end of function help
   "tpope/vim-endwise",
   -- telescope
@@ -80,4 +82,5 @@ require("lazy").setup({
   "MattesGroeger/vim-bookmarks",  -- bookmarks
   --"terryma/vim-multiple-cursors", -- sublime ish functionality
   "mg979/vim-visual-multi", -- multiple cursors
+  "cappyzawa/trim.nvim" -- trim whitespace
 })

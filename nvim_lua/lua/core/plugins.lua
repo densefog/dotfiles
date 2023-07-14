@@ -14,10 +14,17 @@ vim.opt.rtp:prepend(lazypath)
 
 
 require("lazy").setup({
-  "folke/tokyonight.nvim",
+  --"folke/tokyonight.nvim",
   -- { "catppuccin/nvim", name = "catppuccin" },
   -- "tomasiser/vim-code-dark",
   -- 'Mofiqul/vscode.nvim',
+  {
+    'navarasu/onedark.nvim',
+    priority = 1000,
+    config = function()
+      vim.cmd.colorscheme "onedark"
+    end
+  },
   {
     'nvim-tree/nvim-tree.lua',
     dependencies = {

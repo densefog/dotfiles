@@ -14,10 +14,17 @@ vim.opt.rtp:prepend(lazypath)
 
 
 require("lazy").setup({
-  "folke/tokyonight.nvim",
+  --"folke/tokyonight.nvim",
   -- { "catppuccin/nvim", name = "catppuccin" },
   -- "tomasiser/vim-code-dark",
   -- 'Mofiqul/vscode.nvim',
+  {
+    'navarasu/onedark.nvim',
+    priority = 1000,
+    config = function()
+      vim.cmd.colorscheme "onedark"
+    end
+  },
   {
     'nvim-tree/nvim-tree.lua',
     dependencies = {
@@ -35,6 +42,8 @@ require("lazy").setup({
   },
   --"rrethy/nvim-treesitter-endwise", -- end of function help
   "tpope/vim-endwise",
+  "tpope/vim-fugitive",
+  "tpope/vim-unimpaired",
   -- telescope
   {
     "nvim-telescope/telescope.nvim", 
@@ -42,6 +51,7 @@ require("lazy").setup({
     dependencies = { 'nvim-lua/plenary.nvim' }
   },
   { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
+  'mileszs/ack.vim',
   {'junegunn/fzf', build = "fzf#install()"},
   { 'junegunn/fzf.vim'},
   "skwp/greplace.vim",              -- Gsearch and replace for text in files
@@ -78,9 +88,9 @@ require("lazy").setup({
   --"L3MON4D3/LuaSnip",
    "dcampos/nvim-snippy",
    "dcampos/cmp-snippy",
-  -- end snippets
+   -- end snippets
   "MattesGroeger/vim-bookmarks",  -- bookmarks
   --"terryma/vim-multiple-cursors", -- sublime ish functionality
   "mg979/vim-visual-multi", -- multiple cursors
-  "cappyzawa/trim.nvim" -- trim whitespace
+  "cappyzawa/trim.nvim", -- trim whitespace
 })

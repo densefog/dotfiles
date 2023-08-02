@@ -42,6 +42,8 @@ require("lazy").setup({
   },
   --"rrethy/nvim-treesitter-endwise", -- end of function help
   "tpope/vim-endwise",
+  "tpope/vim-fugitive",
+  "tpope/vim-unimpaired",
   -- telescope
   {
     "nvim-telescope/telescope.nvim", 
@@ -89,5 +91,5 @@ require("lazy").setup({
   "MattesGroeger/vim-bookmarks",  -- bookmarks
   --"terryma/vim-multiple-cursors", -- sublime ish functionality
   "mg979/vim-visual-multi", -- multiple cursors
-  "cappyzawa/trim.nvim" -- trim whitespace
+  "cappyzawa/trim.nvim", -- trim whitespace
 })

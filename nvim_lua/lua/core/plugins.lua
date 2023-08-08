@@ -87,7 +87,7 @@ require("lazy").setup({
   --"L3MON4D3/LuaSnip",
    "dcampos/nvim-snippy",
    "dcampos/cmp-snippy",
-  -- end snippets
+   -- end snippets
   "MattesGroeger/vim-bookmarks",  -- bookmarks
   --"terryma/vim-multiple-cursors", -- sublime ish functionality
   "mg979/vim-visual-multi", -- multiple cursors

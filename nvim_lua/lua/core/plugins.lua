@@ -51,6 +51,7 @@ require("lazy").setup({
     dependencies = { 'nvim-lua/plenary.nvim' }
   },
   { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
+  'mileszs/ack.vim',
   {'junegunn/fzf', build = "fzf#install()"},
   { 'junegunn/fzf.vim'},
   "skwp/greplace.vim",              -- Gsearch and replace for text in files

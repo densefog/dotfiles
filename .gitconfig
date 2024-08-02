@@ -71,6 +71,7 @@
   #tool = opendiff
 [diff]
   tool = araxis
+	submodule = log
   #tool = opendiff
 [difftool]
 	prompt = false

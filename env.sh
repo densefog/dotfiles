@@ -56,7 +56,7 @@ alias cddate='cd $(date '+%Y-%m-%d')'
 alias mkdate='mkdir $(date '+%Y-%m-%d');cddate'
 alias mtf='mix test --failed'
 #alias pongweb='cd /Users/tspruit/Desktop/Ponglabs/PongWebsite;git wipeout;git pull;nvm use 16.13;npm install -y;npm run graphql;npm start'
-alias pongweb='cd /Users/tspruit/Desktop/Ponglabs/PongWebsite && git wipeout && git pull && nvm use 16.13 && npm install && npm run graphql && npm rebuild node-sass && env PUBLIC_URL="" npm run build'
+alias pongweb='cd /Users/tspruit/Desktop/Ponglabs/PongWebsite && git wipeout && git pull && npm install && npm run graphql && npm rebuild node-sass && env PUBLIC_URL="" npm run build'
 alias ltf='MIX_ENV=test mix list_test_failures'
 alias pw='pongweb'
 alias ms='iex -S mix phx.server'
@@ -88,3 +88,5 @@ ulimit -n 1024
 
 export KERL_BUILD_DOCS="yes"
 
+# python package manager
+# source "$HOME/.rye/env"

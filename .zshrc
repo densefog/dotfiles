@@ -50,7 +50,9 @@ ZSH_THEME="pygmalion"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git gitfast colored-man-pages colorize bower brew bundler macos rails wd sublime tmuxinator mix mix-fast asdf)
+
+# plugins=(git gitfast colored-man-pages colorize bower brew bundler macos rails wd sublime tmuxinator mix mix-fast asdf virtualenv)
+plugins=(git gitfast colored-man-pages colorize bower brew macos wd sublime tmuxinator mix mix-fast asdf virtualenv)
 
 # User configuration
 
@@ -109,7 +111,7 @@ export CPPFLAGS="${CPPFLAGS} -I/usr/local/opt/zlib/include"
 export PKG_CONFIG_PATH="${PKG_CONFIG_PATH} /usr/local/opt/zlib/lib/pkgconfig"
 #export PATH="/usr/local/opt/mysql-client@5.7/bin:$PATH"
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
@@ -121,5 +123,9 @@ export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
 
 export NEO4J_ACCEPT_LICENSE_AGREEMENT=yes
 
+export PATH=/Users/tspruit/.local/bin:$PATH
+
+
 # Add env.sh
 . ~/env.sh
+source /Users/tspruit/.config/op/plugins.sh

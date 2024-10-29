@@ -126,6 +126,12 @@ export NEO4J_ACCEPT_LICENSE_AGREEMENT=yes
 export PATH=/Users/tspruit/.local/bin:$PATH
 
 
+#export GITHUB_TOKEN=op://development/GitHub/credentials/personal_token
+#export ANTHROPIC_API_KEY="$(op read "op://Private/Anthropic Claude API Key/credential")"
+#export GROQ_API_KEY="$(op read "op://Private/Anthropic Claude API Key/credential")"
+#export OPENAI_API_KEY="$(op read "op://Private/Anthropic Claude API Key/credential")"
+
+
 # Add env.sh
 . ~/env.sh
 source /Users/tspruit/.config/op/plugins.sh

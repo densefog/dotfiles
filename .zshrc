@@ -127,7 +127,7 @@ export PATH=/Users/tspruit/.local/bin:$PATH
 
 
 #export GITHUB_TOKEN=op://development/GitHub/credentials/personal_token
-#export ANTHROPIC_API_KEY="$(op read "op://Private/Anthropic Claude API Key/credential")"
+#export ANTHROPIC_API_KEY="$(op read "op://Private/Jump Claude API Key/credential")"
 #export GROQ_API_KEY="$(op read "op://Private/Anthropic Claude API Key/credential")"
 #export OPENAI_API_KEY="$(op read "op://Private/Anthropic Claude API Key/credential")"
 
@@ -135,3 +135,11 @@ export PATH=/Users/tspruit/.local/bin:$PATH
 # Add env.sh
 . ~/env.sh
 source /Users/tspruit/.config/op/plugins.sh
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/tspruit/Documents/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/tspruit/Documents/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/tspruit/Documents/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/tspruit/Documents/google-cloud-sdk/completion.zsh.inc'; fi

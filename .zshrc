@@ -134,7 +134,7 @@ export PATH=/Users/tspruit/.local/bin:$PATH
 
 # Add env.sh
 . ~/env.sh
-source /Users/tspruit/.config/op/plugins.sh
+# source /Users/tspruit/.config/op/plugins.sh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 

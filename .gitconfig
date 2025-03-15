@@ -62,7 +62,7 @@
 
 [user]
 	name = Troy Spruit
-	email = tspruit@criterion360.com
+	email = troy@threefivesix.com
 [push]
   default = current
 [merge]
@@ -82,7 +82,6 @@
 	rebase = true
 [pager]
   branch =
-[commit]
-	template = /Users/tspruit/.stCommitMsg
+
 [init]
 	defaultBranch = main

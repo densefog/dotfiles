@@ -2,6 +2,7 @@
 	excludesfile = /Users/tspruit/.gitignore_global
 	autocrlf = input
 	attributesfile = /Users/tspruit/.gitattributes
+
 [color]
         diff = auto
         status = auto
@@ -45,6 +46,9 @@
   dtc = difftool -d --no-symlinks
   wipeout = checkout -- .
   sort = branch --sort=-committerdate
+  df = -c diff.external=difft diff
+  dl = -c diff.external=difft log --ext-diff
+  ds = -c diff.external=difft show --ext-diff
 
 [difftool "sourcetree"]
 	cmd = /Applications/Sourcetree.app/Contents/Resources/araxiscompare-w.sh -2 \"$LOCAL\" \"$REMOTE\"
@@ -63,23 +67,30 @@
 [user]
 	name = Troy Spruit
 	email = troy@threefivesix.com
+
 [push]
   default = current
+
 [merge]
   tool = sourcetree
   ff = only
   #tool = opendiff
+
 [diff]
   tool = araxis
-	submodule = log
+	#submodule = log
   #tool = opendiff
+
 [difftool]
 	prompt = false
+
 [mergetool]
 	prompt = false
 	keepBackup = false
+
 [pull]
 	rebase = true
+
 [pager]
   branch =
 

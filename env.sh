@@ -55,8 +55,7 @@ alias x="exit"
 alias cddate='cd $(date '+%Y-%m-%d')'
 alias mkdate='mkdir $(date '+%Y-%m-%d');cddate'
 alias mtf='mix test --failed'
-#alias pongweb='cd /Users/tspruit/Desktop/Ponglabs/PongWebsite;git wipeout;git pull;nvm use 16.13;npm install -y;npm run graphql;npm start'
-alias pongweb='cd /Users/tspruit/Desktop/Ponglabs/PongWebsite && git wipeout && git pull && npm install && npm run graphql && npm rebuild node-sass && env PUBLIC_URL="" npm run build'
+# alias pongweb='cd /Users/tspruit/Desktop/Ponglabs/PongWebsite && git wipeout && git pull && npm install && npm run graphql && npm rebuild node-sass && env PUBLIC_URL="" npm run build'
 alias ltf='MIX_ENV=test mix list_test_failures'
 alias pw='pongweb'
 alias ms='iex -S mix phx.server'
@@ -65,12 +64,17 @@ alias mcc='mix clean;mix compile'
 alias mcs='touch lib/ponglabs_broker_web/schema.ex;mix compile'
 alias mt='mix test --exclude opensearch;afplay /System/Library/Sounds/Glass.aiff'
 alias mem='mix ecto.migrate'
-alias mer='mix ecto.rollback'
+alias mer='mix ecto.rollback -r Jump.Repo'
 alias ltf='mix test.list_failures'
 alias mltf='mix test.list_failures'
 alias gpo='git pull origin $(git rev-parse --abbrev-ref HEAD)'
 #alias lj='cd /Users/tspruit/Desktop/CI/criterion/ponglabs_broker;rm -rf .user_monitor_storage/;mix run lib/one_import/load_jobs.exs'
 #alias umv='cd /Users/tspruit/Desktop/CI/criterion/ponglabs_broker;mix run lib/one_import/user_monitor_validation.exs'
+
+# makes an alias but with parameters
+function mgm() {
+  mix ecto.gen.migration -r Jump.Repo "$@"
+}
 
 # Cheat variables
 export CHEAT_COLORS=true

@@ -56,7 +56,7 @@ plugins=(git gitfast colored-man-pages colorize bower brew macos wd sublime tmux
 
 # User configuration
 
-export PATH="$PATH:$HOME/bin:.bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:~/bin:/usr/local/sbin"
+export PATH="$HOME/bin:.bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:~/bin:/usr/local/sbin:$PATH"
 
 source $ZSH/oh-my-zsh.sh
 
@@ -116,7 +116,7 @@ export PKG_CONFIG_PATH="${PKG_CONFIG_PATH} /usr/local/opt/zlib/lib/pkgconfig"
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
 export CFLAGS="-O2 -g -fno-stack-check"
-export KERL_CONFIGURE_OPTIONS="--disable-hipe --with-ssl=$(brew --prefix openssl@1.1) --with-wx-config=$(brew --prefix wxwidgets)/bin/wx-config --with-odbc=$(brew --prefix unixodbc)"
+export KERL_CONFIGURE_OPTIONS="--disable-hipe --with-ssl=$(brew --prefix openssl@3) --with-wx-config=$(brew --prefix wxwidgets)/bin/wx-config --with-odbc=$(brew --prefix unixodbc)"
 export CPPFLAGS="-I$(brew --prefix unixodbc)/include"
 export LDFLAGS="-L$(brew --prefix unixodbc)/lib"
 export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
@@ -124,7 +124,6 @@ export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
 export NEO4J_ACCEPT_LICENSE_AGREEMENT=yes
 
 export PATH=/Users/tspruit/.local/bin:$PATH
-
 
 #export GITHUB_TOKEN=op://development/GitHub/credentials/personal_token
 #export ANTHROPIC_API_KEY="$(op read "op://Private/Jump Claude API Key/credential")"
@@ -139,7 +138,17 @@ export PATH=/Users/tspruit/.local/bin:$PATH
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/tspruit/Documents/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/tspruit/Documents/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f '/Users/tspruit/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/tspruit/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/Users/tspruit/Documents/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/tspruit/Documents/google-cloud-sdk/completion.zsh.inc'; fi
+if [ -f '/Users/tspruit/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/tspruit/google-cloud-sdk/completion.zsh.inc'; fi
+
+# completion for kubectl
+source <(kubectl completion zsh)
+
+# bun completions
+[ -s "/Users/tspruit/.bun/_bun" ] && source "/Users/tspruit/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"

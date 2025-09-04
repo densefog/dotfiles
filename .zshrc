@@ -52,7 +52,7 @@ ZSH_THEME="pygmalion"
 # Add wisely, as too many plugins slow down shell startup.
 
 # plugins=(git gitfast colored-man-pages colorize bower brew bundler macos rails wd sublime tmuxinator mix mix-fast asdf virtualenv)
-plugins=(git gitfast colored-man-pages colorize bower brew macos wd sublime tmuxinator mix mix-fast asdf virtualenv)
+plugins=(git gitfast colored-man-pages colorize bower brew macos wd sublime tmuxinator mix mix-fast virtualenv)
 
 # User configuration
 
@@ -152,3 +152,8 @@ source <(kubectl completion zsh)
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+alias claude="SHELL=/bin/bash /Users/tspruit/.claude/local/claude"
+eval "$(/Users/tspruit/.local/bin/mise activate zsh)"
+
+# node
+export PATH=$PATH:$(npm get prefix)/bin

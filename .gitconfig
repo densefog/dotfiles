@@ -2,6 +2,10 @@
 	excludesfile = /Users/tspruit/.gitignore_global
 	autocrlf = input
 	attributesfile = /Users/tspruit/.gitattributes
+	pager = delta
+
+[interactive]
+  diffFilter = delta --color-only
 
 [color]
         diff = auto
@@ -45,17 +49,26 @@
   dt = difftool -d
   dtc = difftool -d --no-symlinks
   wipeout = checkout -- .
-  sort = branch --sort=-committerdate
+  #sort = branch --sort=-committerdate
   df = -c diff.external=difft diff
   dl = -c diff.external=difft log --ext-diff
   ds = -c diff.external=difft show --ext-diff
+  wip = commit -am "WIP"
+  sort = "!f() { branch=$(git for-each-ref refs/heads/ --sort=-committerdate --format='%(refname:short)' | fzf) && [ -n \"$branch\" ] && git checkout $branch; }; f"
+  sortlist = branch --sort=-committerdate
+
+[delta]
+  navigate = true
+  dark = true
+  side-by-side = true
+  line-numbers = true
 
 [difftool "sourcetree"]
 	cmd = /Applications/Sourcetree.app/Contents/Resources/araxiscompare-w.sh -2 \"$LOCAL\" \"$REMOTE\"
 	path = 
 
 [mergetool "sourcetree"]
-	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	cmd = /Applications/Sourcetree.app/Contents/Resources/araxisgitmerge-w.sh \"$REMOTE\" \"$BASE\" \"$LOCAL\" \"$MERGED\"
 	trustExitCode = true
 
 [filter "lfs"]
@@ -72,6 +85,7 @@
   default = current
 
 [merge]
+  conflictStyle = zdiff3
   tool = sourcetree
   ff = only
   #tool = opendiff
@@ -96,3 +110,5 @@
 
 [init]
 	defaultBranch = main
+[commit]
+	template = /Users/tspruit/.stCommitMsg

@@ -9,7 +9,7 @@ return {
 
       vim.keymap.set('n', '<Leader>s', ':TestNearest<CR>', { desc = 'Test Nearest' })
       vim.keymap.set('n', '<Leader>t', ':TestFile<CR>', { desc = 'Test File' })
-      vim.keymap.set('n', '<Leader>a', ':TestSuite<CR>', { desc = 'Test Suite' })
+      --vim.keymap.set('n', '<Leader>a', ':TestSuite<CR>', { desc = 'Test Suite' })
       vim.keymap.set('n', '<Leader>l', ':TestLast<CR>', { desc = 'Test Last' })
       vim.keymap.set('n', '<Leader>v', ':TestVisit<CR>', { desc = 'Test Visit' })
       vim.keymap.set('n', '<Leader>h', ':SlimuxShellRun mtf<CR>', { desc = 'Mix test failed' })

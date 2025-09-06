@@ -180,6 +180,18 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 vim.keymap.set('n', '<F2>', '<cmd>SessionManager! save_current_session<cr>', { desc = 'Save this session' })
 vim.keymap.set('n', '<F3>', '<cmd>SessionManager! load_last_session<cr>', { desc = 'Load last session' })
 
+-- Disabel CMD+P
+vim.keymap.set('n', '<D-p>', '<Nop>', { noremap = true, silent = true })
+
+-- Copy relative path and line number to clipboard
+vim.keymap.set('n', '<leader>r', function()
+  local relative_path = vim.fn.expand '%'
+  local line_number = vim.fn.line '.'
+  local path_with_line = '@api/' .. relative_path .. ':' .. line_number
+  vim.fn.setreg('+', path_with_line)
+  print('Copied to clipboard: ' .. path_with_line)
+end, { desc = '[C]opy relative [P]ath with line number' })
+
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
 -- is not what someone will guess without a bit more experience.

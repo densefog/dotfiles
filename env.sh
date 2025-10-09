@@ -68,6 +68,7 @@ alias mer='mix ecto.rollback -r Jump.Repo'
 alias ltf='mix test.list_failures'
 alias mltf='mix test.list_failures'
 alias gpo='git pull origin $(git rev-parse --abbrev-ref HEAD)'
+alias pretty='cd assets;npm run lint:prettier:fix;cd ..'
 #alias lj='cd /Users/tspruit/Desktop/CI/criterion/ponglabs_broker;rm -rf .user_monitor_storage/;mix run lib/one_import/load_jobs.exs'
 #alias umv='cd /Users/tspruit/Desktop/CI/criterion/ponglabs_broker;mix run lib/one_import/user_monitor_validation.exs'
 

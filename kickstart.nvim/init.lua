@@ -184,10 +184,17 @@ vim.keymap.set('n', '<F3>', '<cmd>SessionManager! load_last_session<cr>', { desc
 vim.keymap.set('n', '<D-p>', '<Nop>', { noremap = true, silent = true })
 
 vim.treesitter.language.register('tsx', 'typescriptreact')
-vim.opt_local.expandtab = true
-vim.opt_local.shiftwidth = 2
-vim.opt_local.softtabstop = 2
-vim.opt_local.tabstop = 2
+
+-- Configure indentation for TypeScript/JavaScript/Elixir files
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = { 'typescript', 'typescriptreact', 'javascript', 'javascriptreact' },
+  callback = function()
+    vim.opt_local.expandtab = true
+    vim.opt_local.shiftwidth = 2
+    vim.opt_local.softtabstop = 2
+    vim.opt_local.tabstop = 2
+  end,
+})
 
 -- Copy relative path and line number to clipboard
 vim.keymap.set('n', '<leader>r', function()
@@ -269,7 +276,12 @@ rtp:prepend(lazypath)
 -- NOTE: Here is where you install your plugins.
 require('lazy').setup({
   -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
-  'NMAC427/guess-indent.nvim', -- Detect tabstop and shiftwidth automatically
+  {
+    'NMAC427/guess-indent.nvim',
+    opts = {
+      filetype_exclude = { 'typescript', 'typescriptreact', 'javascript', 'javascriptreact' },
+    },
+  },
 
   -- NOTE: Plugins can also be added by using a table,
   -- with the first argument being the link and the following
@@ -764,6 +776,7 @@ require('lazy').setup({
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
         'stylua', -- Used to format Lua code
+        'prettierd', -- Used to format TypeScript/JavaScript code
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
@@ -809,7 +822,7 @@ require('lazy').setup({
           return nil
         else
           return {
-            timeout_ms = 1000,
+            timeout_ms = 3000,
             lsp_format = 'fallback',
           }
         end
@@ -817,11 +830,10 @@ require('lazy').setup({
       formatters_by_ft = {
         lua = { 'stylua' },
         elixir = { 'mix' },
-        -- Conform can also run multiple formatters sequentially
-        -- python = { "isort", "black" },
-        --
-        -- You can use 'stop_after_first' to run the first available formatter from the list
-        -- javascript = { "prettierd", "prettier", stop_after_first = true },
+        typescript = { 'prettierd', 'prettier', stop_after_first = true },
+        typescriptreact = { 'prettierd', 'prettier', stop_after_first = true },
+        javascript = { 'prettierd', 'prettier', stop_after_first = true },
+        javascriptreact = { 'prettierd', 'prettier', stop_after_first = true },
       },
     },
   },
@@ -1022,7 +1034,7 @@ require('lazy').setup({
         --  the list of additional_vim_regex_highlighting and disabled languages for indent.
         additional_vim_regex_highlighting = { 'ruby' },
       },
-      indent = { enable = true, disable = { 'ruby', 'tsx' } },
+      indent = { enable = true, disable = { 'ruby' } },
     },
     -- There are additional nvim-treesitter modules that you can use to interact
     -- with nvim-treesitter. You should go explore a few and see what interests you:

@@ -9,7 +9,7 @@ return {
   },
   lazy = false,
   keys = {
-    { '\\', ':NvimTreeToggle<CR>', desc = 'NvimTree toggle', silent = true },
+    { '\\', ':NvimTreeFindFile<CR>', desc = 'NvimTree find file', silent = true },
     { '<Leader>n', ':NvimTreeFindFile<CR>', desc = 'NvimTree find file', silent = true },
   },
   opts = {
@@ -27,6 +27,13 @@ return {
           folder = true,
           file = true,
           folder_arrow = true,
+        },
+      },
+    },
+    actions = {
+      open_file = {
+        window_picker = {
+          enable = false,
         },
       },
     },

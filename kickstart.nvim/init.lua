@@ -158,8 +158,11 @@ vim.o.inccommand = 'split'
 -- Show which line your cursor is on
 vim.o.cursorline = true
 
+-- Disable line wrapping
+vim.o.wrap = false
+
 -- Minimal number of screen lines to keep above and below the cursor.
-vim.o.scrolloff = 5
+vim.o.scrolloff = 8
 
 -- if performing an operation that would fail due to unsaved changes in the buffer (like `:q`),
 -- instead raise a dialog asking if you wish to save the current file(s)
@@ -227,6 +230,16 @@ vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left wind
 vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
+
+-- ["<left>"] = { "<c-w><" },
+-- ["<right>"] = { "<c-w>>" },
+-- ["<up>"] = { "<c-w>+" },
+-- ["<down>"] = { "<c-w>-" },
+
+vim.keymap.set('n', '<left>', '<c-w><', { desc = 'Shift window left' })
+vim.keymap.set('n', '<right>', '<c-w>>', { desc = 'Shift window right' })
+vim.keymap.set('n', '<up>', '<c-w>+', { desc = 'Shift window up' })
+vim.keymap.set('n', '<down>', '<c-w>-', { desc = 'Shift window down' })
 
 -- NOTE: Some terminals have colliding keymaps or are not able to send distinct keycodes
 -- vim.keymap.set("n", "<C-S-h>", "<C-w>H", { desc = "Move window to the left" })
@@ -840,36 +853,31 @@ require('lazy').setup({
 
   { -- Autocompletion
     'saghen/blink.cmp',
-    event = 'VimEnter',
+    event = 'InsertEnter',
     version = '1.*',
     dependencies = {
       -- Snippet Engine
-      -- {
-      --   'L3MON4D3/LuaSnip',
-      --   version = '2.*',
-      --   build = (function()
-      --     -- Build Step is needed for regex support in snippets.
-      --     -- This step is not supported in many windows environments.
-      --     -- Remove the below condition to re-enable on windows.
-      --     if vim.fn.has 'win32' == 1 or vim.fn.executable 'make' == 0 then
-      --       return
-      --     end
-      --     return 'make install_jsregexp'
-      --   end)(),
-      --   dependencies = {
-      --     -- `friendly-snippets` contains a variety of premade snippets.
-      --     --    See the README about individual language/framework/plugin snippets:
-      --     --    https://github.com/rafamadriz/friendly-snippets
-      --     --{
-      --     --  'rafamadriz/friendly-snippets',
-      --     --  config = function()
-      --     --    require('luasnip.loaders.from_vscode').lazy_load()
-      --     --  end,
-      --     --},
-      --   },
-      --   opts = {},
-      -- },
-      -- 'folke/lazydev.nvim',
+      {
+        'L3MON4D3/LuaSnip',
+        version = '2.*',
+        build = (function()
+          -- Build Step is needed for regex support in snippets.
+          -- This step is not supported in many windows environments.
+          -- Remove the below condition to re-enable on windows.
+          if vim.fn.has 'win32' == 1 or vim.fn.executable 'make' == 0 then
+            return
+          end
+          return 'make install_jsregexp'
+        end)(),
+        config = function()
+          -- Load custom VSCode-format snippets from snippets directory
+          require('luasnip.loaders.from_vscode').lazy_load {
+            paths = { vim.fn.stdpath 'config' .. '/snippets' },
+          }
+          -- Ensure snippets are loaded and available
+          require('luasnip').filetype_extend('elixir', { 'elixir' })
+        end,
+      },
     },
     --- @module 'blink.cmp'
     --- @type blink.cmp.Config
@@ -915,15 +923,13 @@ require('lazy').setup({
       },
 
       sources = {
-        default = { 'lsp', 'path', 'lazydev' },
-        --default = { 'lsp', 'path', 'snippets', 'lazydev' },
+        default = { 'lsp', 'path', 'snippets', 'lazydev' },
         providers = {
           lazydev = { module = 'lazydev.integrations.blink', score_offset = 100 },
         },
       },
 
-      snippets = {},
-      --snippets = { preset = 'luasnip' },
+      snippets = { preset = 'luasnip' },
 
       -- Blink.cmp includes an optional, recommended rust fuzzy matcher,
       -- which automatically downloads a prebuilt binary when enabled.

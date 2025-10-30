@@ -1,3 +1,7 @@
+-- if true then
+--   return {}
+-- end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
+
 return {
   --{ "junegunn/fzf", dir = "~/.fzf", build = "./install --all", lazy = false },
   { 'junegunn/fzf', build = './install --all', lazy = false },

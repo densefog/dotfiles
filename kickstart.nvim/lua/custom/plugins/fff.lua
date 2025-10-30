@@ -1,3 +1,11 @@
+-- if true then
+--   return {}
+-- end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
+
+-- NOTE: If this is broken, try to cd into the plugin and run:
+-- cd ~/.local/share/nvim/lazy/fff.nvim
+-- cargo build --release
+
 return {
   'dmtrKovalenko/fff.nvim',
   build = function()
@@ -15,7 +23,7 @@ return {
   },
   -- No need to lazy-load with lazy.nvim.
   -- This plugin initializes itself lazily.
-  lazy = false,
+  lazy = true,
   keys = {
     {
       '<c-p>', -- try it if you didn't it is a banger keybinding for a picker

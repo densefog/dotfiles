@@ -17,7 +17,7 @@ return {
     hijack_netrw = true,
     sync_root_with_cwd = true,
     view = {
-      width = 30,
+      width = 50,
     },
     renderer = {
       group_empty = true,

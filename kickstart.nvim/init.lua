@@ -169,6 +169,9 @@ vim.o.scrolloff = 8
 -- See `:help 'confirm'`
 vim.o.confirm = true
 
+-- session options recommended by auto-session session manager
+vim.o.sessionoptions = 'blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions'
+
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 

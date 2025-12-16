@@ -62,6 +62,7 @@ alias ms='iex -S mix phx.server'
 alias mc='mix compile'
 alias mcc='mix clean;mix compile'
 alias mcs='touch lib/ponglabs_broker_web/schema.ex;mix compile'
+alias mf='mix format'
 alias mt='mix test --exclude opensearch;afplay /System/Library/Sounds/Glass.aiff'
 alias mem='mix ecto.migrate'
 alias mer='mix ecto.rollback -r Jump.Repo'
@@ -96,6 +97,9 @@ ulimit -n 1024
 #export KERL_CONFIGURE_OPTIONS="--disable-debug --disable-silent-rules --without-javac --enable-shared-zlib --enable-dynamic-ssl-lib --enable-hipe --enable-sctp --enable-smp-support --enable-threads --enable-kernel-poll --enable-wx --enable-darwin-64bit --with-ssl=$(brew --prefix openssl)"
 
 export KERL_BUILD_DOCS="yes"
+
+# Speed up mix compiling
+export MIX_OS_DEPS_COMPILE_PARTITION_COUNT=8
 
 # python package manager
 # source "$HOME/.rye/env"

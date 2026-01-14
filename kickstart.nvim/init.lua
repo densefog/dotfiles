@@ -745,21 +745,22 @@ require('lazy').setup({
         -- ts_ls = {},
         --
 
-        --lexical = {
-        --  cmd = { '/Users/tspruit/Desktop/Playground/expert/apps/expert/burrito_out/expert_darwin_arm64' },
-        --  root_dir = function(fname)
-        --    return require('lspconfig').util.root_pattern('mix.exs', '.git')(fname) or vim.loop.cwd()
-        --  end,
-        --  filetypes = { 'elixir', 'eelixir', 'heex' },
-        --  -- optional settings
-        --  settings = {},
-        --},
-        --expert = {
-        --  cmd = { 'expert' },
-        --  root_markers = { 'mix.exs', '.git' },
-        --  filetypes = { 'elixir', 'eelixir', 'heex' },
-        --},
-        elixirls = {},
+        -- lexical = {
+        --   cmd = { '/Users/tspruit/.local/bin/start_expert.sh' },
+        --   -- cmd = { '/Users/tspruit/.local/bin/expert_darwin_arm64', '--stdio' },
+        --   -- root_dir = function(fname)
+        --   --   return require('lspconfig').util.root_pattern('mix.exs', '.git')(fname) or vim.loop.cwd()
+        --   -- end,
+        --   filetypes = { 'elixir', 'eelixir', 'heex' },
+        --   -- optional settings
+        --   settings = {},
+        -- },
+        expert = {
+          cmd = { '/Users/tspruit/.local/bin/expert_darwin_arm64', '--stdio' },
+          root_markers = { 'mix.exs', '.git' },
+          filetypes = { 'elixir', 'eelixir', 'heex' },
+        },
+        -- elixirls = {},
         lua_ls = {
           -- cmd = { ... },
           -- filetypes = { ... },
@@ -798,7 +799,7 @@ require('lazy').setup({
 
       require('mason-lspconfig').setup {
         ensure_installed = {}, -- explicitly set to an empty table (Kickstart populates installs via mason-tool-installer)
-        automatic_installation = true,
+        automatic_installation = false,
         handlers = {
           function(server_name)
             local server = servers[server_name] or {}
@@ -813,50 +814,50 @@ require('lazy').setup({
     end,
   },
 
-  { -- Autoformat
-    'stevearc/conform.nvim',
-    event = { 'BufWritePre' },
-    cmd = { 'ConformInfo' },
-    keys = {
-      {
-        '<leader>f',
-        function()
-          require('conform').format { async = true, lsp_format = 'fallback' }
-        end,
-        mode = '',
-        desc = '[F]ormat buffer',
-      },
-    },
-    opts = {
-      notify_on_error = false,
-      format_on_save = function(bufnr)
-        -- Disable "format_on_save lsp_fallback" for languages that don't
-        -- have a well standardized coding style. You can add additional
-        -- languages here or re-enable it for the disabled ones.
-        local disable_filetypes = { c = true, cpp = true }
-        if disable_filetypes[vim.bo[bufnr].filetype] then
-          return nil
-        else
-          return {
-            timeout_ms = 3000,
-            lsp_format = 'fallback',
-          }
-        end
-      end,
-      formatters_by_ft = {
-        lua = { 'stylua' },
-        elixir = { 'mix' },
-        typescript = { 'prettierd', 'prettier', stop_after_first = true },
-        typescriptreact = { 'prettierd', 'prettier', stop_after_first = true },
-        javascript = { 'prettierd', 'prettier', stop_after_first = true },
-        javascriptreact = { 'prettierd', 'prettier', stop_after_first = true },
-      },
-    },
-  },
+  -- { -- Autoformat
+  --   'stevearc/conform.nvim',
+  --   event = { 'BufWritePre' },
+  --   cmd = { 'ConformInfo' },
+  --   keys = {
+  --     {
+  --       '<leader>f',
+  --       function()
+  --         require('conform').format { async = true, lsp_format = 'fallback' }
+  --       end,
+  --       mode = '',
+  --       desc = '[F]ormat buffer',
+  --     },
+  --   },
+  --   opts = {
+  --     notify_on_error = false,
+  --     format_on_save = function(bufnr)
+  --       -- Disable "format_on_save lsp_fallback" for languages that don't
+  --       -- have a well standardized coding style. You can add additional
+  --       -- languages here or re-enable it for the disabled ones.
+  --       local disable_filetypes = { c = true, cpp = true }
+  --       if disable_filetypes[vim.bo[bufnr].filetype] then
+  --         return nil
+  --       else
+  --         return {
+  --           timeout_ms = 3000,
+  --           lsp_format = 'fallback',
+  --         }
+  --       end
+  --     end,
+  --     formatters_by_ft = {
+  --       lua = { 'stylua' },
+  --       elixir = { 'mix' },
+  --       typescript = { 'prettierd', 'prettier', stop_after_first = true },
+  --       typescriptreact = { 'prettierd', 'prettier', stop_after_first = true },
+  --       javascript = { 'prettierd', 'prettier', stop_after_first = true },
+  --       javascriptreact = { 'prettierd', 'prettier', stop_after_first = true },
+  --     },
+  --   },
+  -- },
 
   { -- Autocompletion
     'saghen/blink.cmp',
-    event = 'InsertEnter',
+    event = 'VimEnter',
     version = '1.*',
     dependencies = {
       -- Snippet Engine

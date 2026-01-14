@@ -4,7 +4,7 @@ export USER_NAME="Troy Spruit"
 export SHELL_SESSION_HISTORY=0
 export HISTFILESIZE=1000000000
 export HISTSIZE=1000000
-export EDITOR=vim
+export EDITOR=nvim
 export DISABLE_SPRING=true
 
 function repeat() {
@@ -70,6 +70,8 @@ alias ltf='mix test.list_failures'
 alias mltf='mix test.list_failures'
 alias gpo='git pull origin $(git rev-parse --abbrev-ref HEAD)'
 alias pretty='cd assets;npm run lint:prettier:fix;cd ..'
+alias vi='nvim'
+alias vim='nvim'
 #alias lj='cd /Users/tspruit/Desktop/CI/criterion/ponglabs_broker;rm -rf .user_monitor_storage/;mix run lib/one_import/load_jobs.exs'
 #alias umv='cd /Users/tspruit/Desktop/CI/criterion/ponglabs_broker;mix run lib/one_import/user_monitor_validation.exs'
 

@@ -52,7 +52,7 @@ ZSH_THEME="pygmalion"
 # Add wisely, as too many plugins slow down shell startup.
 
 # plugins=(git gitfast colored-man-pages colorize bower brew bundler macos rails wd sublime tmuxinator mix mix-fast asdf virtualenv)
-plugins=(git gitfast colored-man-pages colorize bower brew macos wd sublime tmuxinator mix mix-fast virtualenv)
+plugins=(git gitfast colored-man-pages colorize bower brew macos wd sublime tmuxinator mix mix-fast virtualenv python uv)
 
 # User configuration
 
@@ -120,6 +120,7 @@ export KERL_CONFIGURE_OPTIONS="--disable-hipe --with-ssl=$(brew --prefix openssl
 export CPPFLAGS="-I$(brew --prefix unixodbc)/include"
 export LDFLAGS="-L$(brew --prefix unixodbc)/lib"
 export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
+export VIRTUAL_ENV_DISABLE_PROMPT=
 
 export NEO4J_ACCEPT_LICENSE_AGREEMENT=yes
 
@@ -153,7 +154,14 @@ source <(kubectl completion zsh)
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 alias claude="SHELL=/bin/bash /Users/tspruit/.claude/local/claude"
-eval "$(/Users/tspruit/.local/bin/mise activate zsh)"
+
 
 # node
 export PATH=$PATH:$(npm get prefix)/bin
+
+# mise
+export PATH="$HOME/.local/share/mise/shims:$PATH"
+
+# overrides for path
+export PATH="$HOME/bin:$PATH"
+

@@ -264,6 +264,16 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
+-- Format Elixir files on save using LSP
+-- vim.api.nvim_create_autocmd('BufWritePre', {
+--   desc = 'Format Elixir files on save',
+--   group = vim.api.nvim_create_augroup('elixir-format-on-save', { clear = true }),
+--   pattern = { '*.ex', '*.exs' },
+--   callback = function()
+--     vim.lsp.buf.format({ timeout_ms = 5000})
+--   end,
+-- })
+
 -- [[ Install `lazy.nvim` plugin manager ]]
 --    See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'

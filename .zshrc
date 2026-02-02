@@ -153,7 +153,7 @@ source <(kubectl completion zsh)
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
-alias claude="SHELL=/bin/bash /Users/tspruit/.claude/local/claude"
+# alias claude="SHELL=/bin/bash /Users/tspruit/.claude/local/claude"
 
 
 # node

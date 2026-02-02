@@ -89,6 +89,9 @@ export CHEAT_COLORS=true
 export CHEAT_COLORSCHEME=dark
 export DYLD_INSERT_LIBRARIES=
 
+# for jump server
+export SESSION_ID_COOKIE_DOMAINS=".jumpapp.ai"
+
 ulimit -n 1024
 
 #alias mkdate="mkdir $(date '+%Y-%m-%d');cd $(date '+%Y-%m-%d')"
